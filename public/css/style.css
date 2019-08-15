@@ -1,0 +1,37 @@
+/* Genral Settings */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 16px; 
+}
+
+
+body{
+    font-family: 'lato',sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #777;
+    background-color: #F5F6FA;
+
+}
+
+.bg-col{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(255, 255, 255);
+    color: rgb(107, 107, 107);
+    font-weight: 300;
+    
+}
+
+.div-center{
+    margin: auto;
+    text-align: center;
+    padding-top: 45vh;
+}
+
+
