@@ -117,7 +117,7 @@
                             <ul>
                                 <li><a href="contactus.html"><i class="material-icons top-nav-icon">search</i></a></li>
                                 <li><a href="index.html"><i class="material-icons top-nav-icon">notifications_none</i></a></li>
-                                <li><a href="signup.html">User<i class="material-icons top-nav-icon">account_circle</i></a></li>
+                                <li><a href="signup.html">{{ Auth::user()->name }}<i class="material-icons top-nav-icon">account_circle</i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -210,7 +210,7 @@
                     <div class="row justify-content-center">
                         <!--Custom page content-->
                         <div class="main_content col-lg-11 col-md-12 col-sm-12 ">
-                        
+
                             @yield('content')
                             
                         </div><!--Main content end-->
