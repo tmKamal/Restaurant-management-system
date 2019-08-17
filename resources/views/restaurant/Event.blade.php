@@ -22,46 +22,48 @@
             <h1>Event Registration</h1>
         </div>
     </div>
-    <div class="row">
-        <div class="eventForm">
-            <div class="row event-form-wrap">
-                <div class="divider"></div>
-                <div class="col-md-6 left-side">
-                    <div class="form-group">
-                        {{Form::label('name','Name')}}
-                        {{Form::text('name','',['class' => 'form-control','placeholder' => 'Enter your name'])}}
-                    </div>
-                    <div class="form-group">
-                        {{Form::label('email','E-Mail Address')}}
-                        {{Form::text('email','',['class' => 'form-control','placeholder' => 'Enter E-mail'])}}
-                    </div>
-                    <div>
-                        {{Form::label('phone','Enter Phone Number')}}
-                        {{Form::text('phone','',['class' => 'form-control','placeholder' => '07* *******'])}}
-                    </div>
-                    <div>
-                        {{Form::label('date','Event Date')}}
-                        {{Form::date('date', \Carbon\Carbon::now(), array('class' => 'form-control', 'required' => '')) }}
-                    </div>
-                    <div class="form-group">
-                        {!! Form::label('time', 'Enter Event Start Time :') !!}
-                        {!! Form::time('time',null, ['class' => 'form-control']) !!}
-                        {{ $errors->first('time') }}
-                    </div>
-                </div>
-            <div class="col-md-6 right-side">
-                <div class="row">
-                    <div class="col-md-12 submit-side">
-                        <div class="form-group">
-                            {{Form::label('message','Extra Details')}}
-                            {{Form::textarea('message','',['class' => 'form-control','placeholder' => 'Enter other details about your event'])}}
-                        </div>
-                    </div>
-                </div>
 
+            <div class="row">
+                <div class="eventForm">
+                    <div class="row event-form-wrap">
+                        <div class="divider"></div>
+                        <div class="col-md-6 left-side">
+                            <div class="form-group">
+                                {{Form::label('name','Name')}}
+                                {{Form::text('name','',['class' => 'form-control','placeholder' => 'Enter your name'])}}
+                            </div>
+                            <div class="form-group">
+                                {{Form::label('email','E-Mail Address')}}
+                                {{Form::text('email','',['class' => 'form-control','placeholder' => 'Enter E-mail'])}}
+                            </div>
+                            <div>
+                                {{Form::label('phone','Enter Phone Number')}}
+                                {{Form::text('phone','',['class' => 'form-control','placeholder' => '07* *******'])}}
+                            </div>
+                            <div>
+                                {{Form::label('date','Event Date')}}
+                                {{Form::date('date', \Carbon\Carbon::now(), array('class' => 'form-control', 'required' => '')) }}
+                            </div>
+                            <div class="form-group">
+                                {!! Form::label('time', 'Enter Event Start Time :') !!}
+                                {!! Form::time('time',null, ['class' => 'form-control']) !!}
+                                {{ $errors->first('time') }}
+                            </div>
+                        </div>
+                    <div class="col-md-6 right-side">
+                        <div class="row">
+                            <div class="col-md-12 submit-side">
+                                <div class="form-group">
+                                    {{Form::label('message','Extra Details')}}
+                                    {{Form::textarea('message','',['class' => 'form-control','placeholder' => 'Enter other details about your event'])}}
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+
 </div>
 
 
