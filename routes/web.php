@@ -14,5 +14,8 @@
 Route::get('/', function () {
     return view('restaurant.index');
 });
+Route::get('/Event', function () {
+    return view('restaurant.Event');
+});
 
 Route::get('admin','adminController@index');

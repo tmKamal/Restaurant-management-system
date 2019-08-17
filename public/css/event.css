@@ -1,0 +1,29 @@
+.event-form-wrap{
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: block;
+    background-color: #dfe6d4;
+    border: 0px;
+    border-radius: 15px;
+    padding-top: 30px;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.3);
+
+    font-size: 17px;
+
+}
+.divider{
+    position: absolute;
+    display: block;
+    height: 200px;
+    width: 2px;
+    left: 46%;
+    top: 27%;
+    background: #636b6f;
+
+}
+.event-reg{
+    text-align: center;
+    margin-top: 1%;
+}
+
