@@ -58,6 +58,7 @@
                                     {{Form::textarea('message','',['class' => 'form-control','placeholder' => 'Enter other details about your event'])}}
                                 </div>
                             </div>
+
                         </div>
 
                     </div>
