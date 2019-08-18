@@ -18,45 +18,82 @@
 {!! Form::open(['url' => 'Event/submit']) !!}
 <div class="container">
     <div class="row">
-        <div class="col-md-12 Event event-reg">
+     <div class="col-md-12  event-reg">
+
             <h1>Event Registration</h1>
+         <div class="text">
+             <h6>Event registration must be completed at least 6 days prior to the event </h6>
+         </div>
         </div>
     </div>
 
             <div class="row">
-                <div class="eventForm">
+                <div class="col-md-12 eventForm">
+
                     <div class="row event-form-wrap">
                         <div class="divider"></div>
-                        <div class="col-md-6 left-side">
+                     <div class="col-md-6 left-side">
                             <div class="form-group">
-                                {{Form::label('name','Name')}}
-                                {{Form::text('name','',['class' => 'form-control','placeholder' => 'Enter your name'])}}
+                                {{Form::label('name','Enter Name')}}
+                                {{Form::text('name','',['class' => 'form-control','placeholder' => 'Name'])}}
+                                <div class="a1">
+                                    {{ $errors->first('name') }}
+                                </div>
                             </div>
                             <div class="form-group">
                                 {{Form::label('email','E-Mail Address')}}
                                 {{Form::text('email','',['class' => 'form-control','placeholder' => 'Enter E-mail'])}}
+                                <div class="a1">
+                                    {{ $errors->first('email') }}
+                                </div>
                             </div>
-                            <div>
+                            <div class="form-group">
                                 {{Form::label('phone','Enter Phone Number')}}
-                                {{Form::text('phone','',['class' => 'form-control','placeholder' => '07* *******'])}}
+                                {{Form::text('phone','',['class' => 'form-control','placeholder' => '*** *******'])}}
+                                <div class="a1">
+                                    {{ $errors->first('phone') }}
+                                </div>
                             </div>
-                            <div>
+                            <div class="form-group">
                                 {{Form::label('date','Event Date')}}
                                 {{Form::date('date', \Carbon\Carbon::now(), array('class' => 'form-control', 'required' => '')) }}
                             </div>
                             <div class="form-group">
                                 {!! Form::label('time', 'Enter Event Start Time :') !!}
                                 {!! Form::time('time',null, ['class' => 'form-control']) !!}
-                                {{ $errors->first('time') }}
-                            </div>
-                        </div>
-                    <div class="col-md-6 right-side">
-                        <div class="row">
-                            <div class="col-md-12 submit-side">
-                                <div class="form-group">
-                                    {{Form::label('message','Extra Details')}}
-                                    {{Form::textarea('message','',['class' => 'form-control','placeholder' => 'Enter other details about your event'])}}
+                                <div class="a1">
+                                    {{ $errors->first('time') }}
                                 </div>
+                            </div>
+                             <div class="form-group">
+                                 {{Form::label('location','Enter Event Location')}}
+                                 {{Form::text('location','',['class' => 'form-control','placeholder' => 'Location'])}}
+                                 <div class="a1">
+                                     {{ $errors->first('location') }}
+                                 </div>
+                             </div>
+                        </div>
+                <div class="col-md-6 right-side">
+                        <div class="row">
+                         <div class="col-md-12 submit-side">
+                                 <div class="form-group">
+                                     {{Form::label('type','Enter Event Type')}}
+                                     {{Form::text('type','',['class' => 'form-control','placeholder' => 'Eg:- Birthday Party'])}}
+                                     <div class="a1">
+                                         {{ $errors->first('type') }}
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                       {{Form::label('message','Extra Details')}}
+                                        {{Form::textarea('message','',['class' => 'form-control','placeholder' => 'Enter other details about your event'])}}
+                                     <div class="a1">
+                                         {{ $errors->first('message') }}
+                                     </div>
+                                 </div>
+                                 <div class="submit">
+                                     {{Form::submit('submit',['class' => 'btn btn-primary'])}}
+                                 </div>
+
                             </div>
 
                         </div>

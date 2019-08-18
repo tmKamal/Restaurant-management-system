@@ -7,8 +7,8 @@
     border: 0px;
     border-radius: 15px;
     padding-top: 30px;
-    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.3);
-
+    box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.3);
+    margin-right: 0%;
     font-size: 17px;
 
 }
@@ -17,13 +17,26 @@
     display: block;
     height: 200px;
     width: 2px;
-    left: 46%;
+    left: 50%;
     top: 27%;
-    background: #636b6f;
+    background: #C0C0C0;
 
 }
 .event-reg{
     text-align: center;
     margin-top: 1%;
+    color: black;
 }
-
+.text{
+    color: #f66d9b;
+}
+.submit{
+    margin-left: 86%;
+    margin-top: 15%;
+}
+.a1{
+    font-family:sans-serif;
+    font-style: italic;
+    color: red;
+    font-size: 55%;
+}
