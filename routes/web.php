@@ -20,3 +20,7 @@ Route::get('/Event', function () {
 Route::post('/Event/submit','EventController@submit');
 
 Route::get('admin','adminController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

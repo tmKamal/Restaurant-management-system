@@ -485,6 +485,81 @@ Responsive Media Queries
     }
 }
 
+/* ================================
+    -------Login Form-------------
+================================== */
+.container-login-bg{
+    width: 100%;  
+    min-height: 100vh;
+    background: #9053c7;
+    background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+}
+
+.login-wrap{
+    background: #fff;
+    border-radius: 10px;
+}
+
+.login-title{
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    
+}
+
+.loginButton {
+	background-color:#44c767;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:8px 31px;
+	text-decoration:none;
+    text-shadow:0px 1px 0px #2f6627;
+    width: 100%;
+    text-align: center;
+}
+.loginButton:hover {
+    background-color:#5cbf2a;
+    text-decoration: none;
+    color: #fff;
+}
+.loginButton:active {
+	position:relative;
+	top:1px;
+}
+
+.forgot-pass h6{
+    color: #888;
+    font-weight: 300;    
+
+
+}
+
+.forgot-pass a{
+    text-decoration: none;
+    color:rgb(30, 190, 30);
+    font-weight: 500;
+}
+.forgot-pass a:hover{
+    color: #20716a;
+    
+}
+
+/* Login End */
+
+
+
+
 
 
 
