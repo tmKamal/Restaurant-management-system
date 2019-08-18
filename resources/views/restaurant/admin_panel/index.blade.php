@@ -80,7 +80,7 @@
                 </div>
                 <div class="last-list-item">
                         <ul class="navigation_section list-container">
-                
+
                                 <li class="navigation_item">
                                         <div class="row">
                                             <div class="col-2 icon-containerSidebar">
@@ -91,10 +91,10 @@
                                             </div>
                                         </div>
                                     </li>
-                                    
+
                     </ul>
                 </div>
-            
+
 
             <!-- <div class="sign-out-center">
                 <a href="#"><h1 class="boxed_item boxed_item_smaller signup">
@@ -141,7 +141,7 @@
                                 <div class="row justify-content-center">
                                     <div class="col-10 info-card-footer">
                                         <i class="material-icons info-card-footer-icon">calendar_today</i>
-                                        <span>This Month</span>    
+                                        <span>This Month</span>
                                     </div>
                                 </div>
                             </div>
@@ -160,7 +160,7 @@
                                 <div class="row justify-content-center">
                                     <div class="col-10 info-card-footer">
                                         <i class="material-icons info-card-footer-icon">calendar_today</i>
-                                        <span>This Month</span>    
+                                        <span>This Month</span>
                                     </div>
                                 </div>
                             </div>
@@ -179,7 +179,7 @@
                                 <div class="row justify-content-center">
                                     <div class="col-10 info-card-footer">
                                         <i class="material-icons info-card-footer-icon">calendar_today</i>
-                                        <span>This Month</span>    
+                                        <span>This Month</span>
                                     </div>
                                 </div>
                             </div>
@@ -198,13 +198,13 @@
                                 <div class="row justify-content-center">
                                     <div class="col-10 info-card-footer">
                                         <i class="material-icons info-card-footer-icon">calendar_today</i>
-                                        <span>This Month</span>    
+                                        <span>This Month</span>
                                     </div>
                                 </div>
                             </div>
                         </div><!-- Info-card-End -->
                     </div>
-                    <!--===================== 
+                    <!--=====================
                         Content
                     =========================== -->
                     <div class="row justify-content-center">
@@ -274,7 +274,7 @@
         </div><!--End PAGE CONTENT-->
     </div>
     <!--End NEW Structure-->
-    
+
 
 
     <!-- Optional JavaScript -->
