@@ -2,6 +2,7 @@
 @section('content')
     <!--form-->
     <form action="addproduct.php" class="form-horizontal" method="post" enctype="multipart/form-data">
+
                                 <fieldset>
 
                                     <!-- Form Name -->
@@ -55,4 +56,5 @@
 
                                 </fieldset>
                             </form>
-@endsection
+
+                        
