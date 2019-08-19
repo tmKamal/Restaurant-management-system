@@ -19,7 +19,7 @@ Route::get('/Event', function () {
 });
 Route::post('/Event/submit','EventController@submit');
 
-Route::get('admin','adminController@index');
+Route::get('/admin','adminController@index');
 
 Auth::routes();
 
