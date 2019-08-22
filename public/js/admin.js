@@ -13,13 +13,15 @@ const adminIcon=document.querySelector('.drop-user');
 adminIcon.addEventListener('click',function(){
     userDrop.classList.toggle('active');
 });
-//hide it when clicking anywhere else except the popup and the trigger
+//hide it when clicking anywhere, except the popup and the userIcon(userName)
 $(document).on('click touch', function(event) {
     if (!$(event.target).parents().addBack().is('.popup-user') && !$(event.target).parents().addBack().is('.drop-user')) {
         userDrop.classList.remove('active');
     }
   });
 //End - User Drop-Down
+
+
 'use strict';
 
 ;( function ( document, window, index )
