@@ -34,4 +34,11 @@ body{
     padding-top: 45vh;
 }
 
+.food-item{
 
+    margin-top:12px;
+}
+
+.card-link+.card-link {
+    margin-left: 0 !important;
+}
