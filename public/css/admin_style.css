@@ -6,7 +6,7 @@
 }
 
 html{
-    font-size: 16px; 
+    font-size: 16px;
 }
 
 /*Font Settings*/
@@ -55,7 +55,7 @@ NEW STRUCTURE
     -moz-transition: all 0.5s ease-in-out;
     -o-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
-    -webkit-box-shadow: 7px 0px 11px -11px rgba(0,0,0,0.77); 
+    -webkit-box-shadow: 7px 0px 11px -11px rgba(0,0,0,0.77);
     box-shadow: 7px 0px 11px -11px rgba(0,0,0,0.77);
     display: flex;/* flex properties */
     justify-content: space-between;
@@ -93,7 +93,7 @@ Styles Of Side-Bar
     width: 100px;
     height: auto;
     margin-right: 20px;
-    
+
 }
 
 .toggle_menu{
@@ -122,7 +122,7 @@ Styles Of Side-Bar
 }
 
 .list-container{
-    
+
 }
 
 .navigation_item{
@@ -136,8 +136,8 @@ Styles Of Side-Bar
     border-image-source: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(235,235,235,1) 0%, rgba(240,240,240,0.8158613787311799) 70%, rgba(255,255,255,1) 100%);
     transition: all 0.1s ease-in-out;
     cursor: pointer;
-    
-    
+
+
 }
 .first-list-item{
     margin-bottom: auto;
@@ -146,12 +146,12 @@ Styles Of Side-Bar
 
 .material-icons.crsidebarIcon{
     font-size: 24px;
-    
+
 }
 
 .sidebarText{
     font-size: 14px;
-   
+
 }
 
 
@@ -261,9 +261,9 @@ Main Content
     padding: 5px;
     padding-right: 10px;
     border: 1px solid rgba(0,0,0,.125);
-    /* -webkit-box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.57); 
+    /* -webkit-box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.57);
     box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.57); */
-    
+
 
 }
 .info-card-icon{
@@ -274,15 +274,15 @@ Main Content
     font-size: 65px;
     font-weight: 300;
     color: green;
-    
+
 }
 .info-card-title h5{
     font-size: 14px;
     font-weight: 700;
     text-align: right;
     margin-top: 5px;
-
 }
+  /* Inventory */
 .info-card-title h3{
     font-size: 28px;
     font-weight: 300;
@@ -293,7 +293,7 @@ Main Content
     align-items: center;
     justify-content: center;
     vertical-align: middle;
-    
+
 }
 .info-card-footer{/* Aligining icon fonts with a text */
     border-top-color: rgba(0, 0, 0, 0.1);
@@ -350,7 +350,7 @@ Main Content
 
 
 
-/*============================== 
+/*==============================
 these css only for the image input
 ================================= */
 /*CSS for HIDE original input */
@@ -489,7 +489,7 @@ Responsive Media Queries
     -------Login Form-------------
 ================================== */
 .container-login-bg{
-    width: 100%;  
+    width: 100%;
     min-height: 100vh;
     background: #9053c7;
     background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
@@ -508,7 +508,7 @@ Responsive Media Queries
     font-size: 28px;
     font-weight: 700;
     text-transform: uppercase;
-    
+
 }
 
 .loginButton {
@@ -540,7 +540,7 @@ Responsive Media Queries
 
 .forgot-pass h6{
     color: #888;
-    font-weight: 300;    
+    font-weight: 300;
 
 
 }
@@ -552,17 +552,7 @@ Responsive Media Queries
 }
 .forgot-pass a:hover{
     color: #20716a;
-    
+
 }
 
 /* Login End */
-
-
-
-
-
-
-
-
-
-

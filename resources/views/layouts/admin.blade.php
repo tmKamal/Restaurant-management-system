@@ -79,6 +79,16 @@
                             </div>
                         </div>
                     </li>
+                    <li class="navigation_item">
+                        <div class="row">
+                            <div class="col-2 icon-containerSidebar">
+                                <i class="material-icons crsidebarIcon">trending_up</i>
+                            </div>
+                            <div class="col-10 sidebarText">
+                                INVENTORY
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
             <div class="last-list-item">
@@ -222,7 +232,7 @@
                             </div>
                         </div><!-- Info-card-End -->
                     </div>
-                    <!--===================== 
+                    <!--=====================
                         Content
                     =========================== -->
                     <div class="row justify-content-center">

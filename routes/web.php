@@ -24,8 +24,17 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
-
     Route::get('/admin','adminController@index');
-
 });
 
+// Route::get('/inventory', 'InventoryController@index');
+
+Route::get('/inventory', function () {
+    return view('inventory');
+});
+
+Route::get('/addItem', function () {
+    return view('addItem');
+});
+
+Route::post('/addItem/submit', 'InventoryController@submit');
