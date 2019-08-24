@@ -181,6 +181,11 @@ Styles Of Side-Bar
     transition: all 0.3s ease-in-out;
 }
 
+.navigation_item a{
+    color: #47484A;
+    text-decoration: none;
+}
+
 
 /*END - Styles Of Side-Bar
 =================================*/
