@@ -9,8 +9,6 @@
             <h1>Cheysta</h1>
             <p>This is the main index file.</p>
             <h4> <a href="admin">Admin Panel</a></h4>
-            <h4> <a href="employee">Emp</a></h4>
-
         </div>
     </div>
     
