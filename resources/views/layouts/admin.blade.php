@@ -85,6 +85,19 @@
                     <li class="navigation_item">
                         <div class="row">
                             <div class="col-2 icon-containerSidebar">
+
+                                <i class="material-icons crsidebarIcon">face</i>
+                            </div>
+                            <div class="col-10 sidebarText">
+                            <a href="/emp">
+                                EMPLOYEES
+                            </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="navigation_item">
+                        <div class="row">
+                            <div class="col-2 icon-containerSidebar">
                                 <i class="material-icons crsidebarIcon">assignment</i>
                             </div>
                             <div class="col-10 sidebarText">
@@ -92,6 +105,7 @@
                             </div>
                         </div>
                     </li>
+                    
                 </ul>
             </div>
             <div class="last-list-item">
@@ -132,7 +146,9 @@
         ==========================-->
         <div id="page-content-wrapper">
             <div class="container-fluid">
-                <!--Page Navigation Bar-->
+                <!--=========================
+                        Navigation Bar
+                ===========================-->
                 <div class="row">
                     <div class="col-sm-12 page-nav">
                         <div class="container">
@@ -141,17 +157,29 @@
                                 <li><a href="contactus.html"><i class="material-icons top-nav-icon">search</i></a></li>
                                 <li><a href="index.html"><i
                                             class="material-icons top-nav-icon">notifications_none</i></a></li>
-                                <li><a href="signup.html">{{ Auth::user()->name }}<i
-                                            class="material-icons top-nav-icon">account_circle</i></a></li>
+                                <li class="drop-user"><a href="#">{{ Auth::user()->name }}<i
+                                            class="material-icons top-nav-icon">account_circle</i></a>
+                                    <!-- DropDown -->
+                                    <div class="popup-user ">
+                                        <ul>
+                                            <li><a href="#">Profile</a></li>
+                                            <li><a href="#">Sign-Out</a></li>
+                                        </ul>    
+                                    </div>
+                                    <!-- DropDown End-->    
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <!--END-Page Navigation bar-->
+                <!--END- Navigation bar-->
 
                 <!--All of Our Page Contents Goes Here!!
                 ========================================-->
                 <div class="page-content-body-wrapper">
+                    <!--=======================================
+                        Info Card Container(4 cards included)
+                    ==========================================-->
                     <div class="row info-cards-wrapper">
                         <!-- Info-Cards-Wrapper -->
                         <div class="col-xl-3 col-md-6  mb-2">

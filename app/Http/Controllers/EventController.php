@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Event;
 
 class EventController extends Controller
 {
@@ -18,6 +19,19 @@ class EventController extends Controller
 
             ]);
 
-        return 'hureee';
+
+        $Event = new Event;
+        $Event -> name = $request -> input('name');
+        $Event -> email = $request -> input('email');
+        $Event -> phone = $request -> input('phone');
+        $Event -> date = $request -> input('date');
+        $Event -> time = $request -> input('time');
+        $Event -> location = $request -> input('location');
+        $Event -> type = $request -> input('type');
+        $Event -> massage = $request -> input('message');
+
+        $Event -> save();
+
+        return redirect('/');
     }
 }
