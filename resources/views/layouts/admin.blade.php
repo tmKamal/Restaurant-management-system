@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/css/inventoryTable.css">
     <link rel="stylesheet" href="/css/invShow.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
     <title>Admin Panel</title>
 </head>
 
@@ -72,16 +73,19 @@
                             </div>
                         </div>
                     </li>
+                    @can('isManager')
                     <li class="navigation_item">
                         <div class="row">
                             <div class="col-2 icon-containerSidebar">
                                 <i class="material-icons crsidebarIcon">trending_up</i>
                             </div>
                             <div class="col-10 sidebarText">
-                                COMPLETED
+                                <a href="employeeManagement">EMP DETAILS</a>
                             </div>
                         </div>
                     </li>
+                    @endcan
+
                     <li class="navigation_item">
                         <div class="row">
                             <div class="col-2 icon-containerSidebar">
@@ -163,10 +167,16 @@
                                     <div class="popup-user ">
                                         <ul>
                                             <li><a href="#">Profile</a></li>
-                                            <li><a href="#">Sign-Out</a></li>
-                                        </ul>    
+                                            <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">SignOut</a>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                    style="display: none;">
+                                                    @csrf
+                                                </form>
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <!-- DropDown End-->    
+                                    <!-- DropDown End-->
                                 </li>
                             </ul>
                         </div>
