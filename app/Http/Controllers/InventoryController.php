@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Inventory;
+use Carbon\Carbon;
 
 class InventoryController extends Controller
 {
@@ -15,8 +16,8 @@ class InventoryController extends Controller
     public function index()
     {
         $items = Inventory::all();
-        // var_dump($items);
-        return view('inventory.index')->with('inventory' ,$items);
+        //var_dump($items);
+        return view('restaurant.inventory')->with('inventory' ,$items);
     }
 
     /**
@@ -26,7 +27,7 @@ class InventoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('restaurant.addItem');
     }
 
     /**
@@ -37,7 +38,28 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $this->validate($request. [
+        //   'text' => 'required'
+        // ]);
+
+        //Create item
+        $inventory = new Inventory;
+        $inventory->Product_Name = $request->input('pName');
+        $inventory->Brand_Name = $request->input('bName');
+        $inventory->Quantity = $request->input('qty');
+        $inventory->Category = $request->input('cat');
+        $inventory->Ordered_Date =Carbon::parse($request->input('oDate'));
+        $inventory->Arrived_Date = Carbon::parse($request->input('aDate'));
+        $inventory->Expire_Date = Carbon::parse($request->input('eDate'));
+        $inventory->Manufactured_Date = Carbon::parse($request->input('mDate'));
+
+
+        $inventory->save();
+
+        return redirect('inventory')->with('success', 'Item added');
+
+
+
     }
 
     /**
@@ -48,7 +70,8 @@ class InventoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $inventory = Inventory::find($id);
+        return view('restaurant.show')->with('item', $inventory);
     }
 
     /**
@@ -59,7 +82,8 @@ class InventoryController extends Controller
      */
     public function edit($id)
     {
-        //
+      $inventory = Inventory::find($id);
+      return view('restaurant.edit')->with('item', $inventory);
     }
 
     /**
@@ -71,7 +95,20 @@ class InventoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $inventory = Inventory::find($id);
+      $inventory->Product_Name = $request->input('pName');
+      $inventory->Brand_Name = $request->input('bName');
+      $inventory->Quantity = $request->input('qty');
+      $inventory->Category = $request->input('cat');
+      $inventory->Ordered_Date =Carbon::parse($request->input('oDate'));
+      $inventory->Arrived_Date = Carbon::parse($request->input('aDate'));
+      $inventory->Expire_Date = Carbon::parse($request->input('eDate'));
+      $inventory->Manufactured_Date = Carbon::parse($request->input('mDate'));
+
+
+      $inventory->save();
+
+      return redirect('inventory')->with('success', 'Item Updated');
     }
 
     /**
@@ -82,6 +119,9 @@ class InventoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $inventory = Inventory::find($id);
+        $inventory->delete();
+
+        return redirect('inventory')->with('success', 'Item Deleted');
     }
 }
