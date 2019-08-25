@@ -13,7 +13,10 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
     <!-- CSS -->
-    <link rel="stylesheet" href="css/admin_style.css">
+    <link rel="stylesheet" href="/css/admin_style.css">
+    <link rel="stylesheet" href="/css/inventoryTable.css">
+    <link rel="stylesheet" href="/css/invShow.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>Admin Panel</title>
 </head>
 
@@ -25,7 +28,7 @@
         ==========================-->
         <div id="sidebar-wrapper">
             <div class="logo-side-bar ">
-                <img src="img/logo.png" alt="logo">
+                <img src="/img/logo.png" alt="logo">
             </div>
             <div class="first-list-item">
                 <ul class="navigation_section list-container">
@@ -82,6 +85,7 @@
                     <li class="navigation_item">
                         <div class="row">
                             <div class="col-2 icon-containerSidebar">
+
                                 <i class="material-icons crsidebarIcon">face</i>
                             </div>
                             <div class="col-10 sidebarText">
@@ -90,8 +94,18 @@
                             </a>
                             </div>
                         </div>
-
                     </li>
+                    <li class="navigation_item">
+                        <div class="row">
+                            <div class="col-2 icon-containerSidebar">
+                                <i class="material-icons crsidebarIcon">assignment</i>
+                            </div>
+                            <div class="col-10 sidebarText">
+                                <a href="/inventory">INVENTORY</a>
+                            </div>
+                        </div>
+                    </li>
+                    
                 </ul>
             </div>
             <div class="last-list-item">
@@ -249,7 +263,7 @@
                             </div>
                         </div><!-- Info-card-End -->
                     </div>
-                    <!--===================== 
+                    <!--=====================
                         Content
                     =========================== -->
                     <div class="row justify-content-center">
