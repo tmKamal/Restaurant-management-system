@@ -13,7 +13,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
     <!-- CSS -->
-    <link rel="stylesheet" href="css/admin_style.css">
+    <link rel="stylesheet" href="/css/admin_style.css">
     <title>Admin Panel</title>
 </head>
 
@@ -25,7 +25,7 @@
         ==========================-->
         <div id="sidebar-wrapper">
             <div class="logo-side-bar ">
-                <img src="img/logo.png" alt="logo">
+                <img src="/img/logo.png" alt="logo">
             </div>
             <div class="first-list-item">
                 <ul class="navigation_section list-container">
@@ -69,16 +69,18 @@
                             </div>
                         </div>
                     </li>
+                    @can('isManager')
                     <li class="navigation_item">
                         <div class="row">
                             <div class="col-2 icon-containerSidebar">
                                 <i class="material-icons crsidebarIcon">trending_up</i>
                             </div>
                             <div class="col-10 sidebarText">
-                                COMPLETED
+                                <a href="employeeManagement">EMP DETAILS</a>
                             </div>
                         </div>
                     </li>
+                    @endcan
                 </ul>
             </div>
             <div class="last-list-item">
@@ -136,10 +138,16 @@
                                     <div class="popup-user ">
                                         <ul>
                                             <li><a href="#">Profile</a></li>
-                                            <li><a href="#">Sign-Out</a></li>
-                                        </ul>    
+                                            <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">SignOut</a>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                    style="display: none;">
+                                                    @csrf
+                                                </form>
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <!-- DropDown End-->    
+                                    <!-- DropDown End-->
                                 </li>
                             </ul>
                         </div>

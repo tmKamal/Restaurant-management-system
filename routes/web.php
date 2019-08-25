@@ -22,10 +22,11 @@ Route::post('/Event/submit','EventController@submit');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::post('/emp/{type}/update','adminController@updateEmp');
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/admin','adminController@index');
+    Route::get('/employeeManagement','adminController@showEmployeeMgt');
 
 });
 
