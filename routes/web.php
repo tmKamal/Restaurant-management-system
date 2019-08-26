@@ -11,21 +11,47 @@
 |
 */
 
-Route::get('/', function () {
-    return view('restaurant.index');
-});
+Route::get('/', 'MenuController@showIndex');
+
 Route::get('/Event', function () {
     return view('restaurant.Event');
 });
+
+//Employee routes----
+
+Route::get('/emp', function (){
+   return view('restaurant.emp_dash');
+});
+
+Route::get('/emp-form', function (){
+    return view('restaurant.sal-create');
+});
+
+Route::get('/kitchen', 'KitchenController@index');
+
+//**************
+Route::get('/emp', 'EmployeeController@index');
+
+Route::resource('employee', 'EmployeeController');
+
+Route::post('/employee/submit','EmployeeController@submit');
+
+//-------------------
+
+
+
+
 Route::post('/Event/submit','EventController@submit');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::post('/emp/{type}/update','adminController@updateEmp');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin','adminController@index');
+    Route::get('/employeeManagement','adminController@showEmployeeMgt');
 });
+
 
 //Route for INVENTORY
 
@@ -47,3 +73,9 @@ Route::post('/addItem/submit', 'InventoryController@store');
 Route::get('/inventory','InventoryController@index');
 Route::get('/show/{id}', 'InventoryController@show');
 Route::resource('inventory', 'InventoryController');
+
+/* Routes for Menu */
+Route::get('/menu', 'MenuController@index');
+Route::post('/menuSubmit', 'MenuController@submit');
+Route::get('/menuDetails', 'MenuController@details');
+Route::get('/menu/{mId}/delete', 'MenuController@delete');

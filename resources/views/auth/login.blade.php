@@ -28,9 +28,9 @@
         </div>
         @enderror
     </div>
-    <div class="custom-control custom-checkbox my-1 mr-sm-2">
+    <div class="custom-control custom-checkbox mr-sm-2 mb-1">
         <input name="remember" id="remember" type="checkbox" class="custom-control-input" {{old('remember')?'checked':''}}>
-        <label class="custom-control-label" for="customControlInline">Remember Me</label>
+        <label class="custom-control-label" for="remember">Remember Me</label>
     </div>
     @if(Route::has('password.request'))
     <div class="form-group">
