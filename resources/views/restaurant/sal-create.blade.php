@@ -12,6 +12,8 @@
 <body>
 
 @section('content')
+    <a href="/emp" class="btn btn-outline-secondary">Go back</a>
+    <hr>
 <h2>Create New Employee Pay Details</h2>
 <hr>
     {{ Form::open(['action' => 'EmployeeController@store', 'method' => 'POST']) }}
@@ -20,6 +22,7 @@
         {{Form::bsNumber('otRate')}}
         {{Form::bsSubmit('Submit', ['id' => 'setup'])}}
     {{ Form::close() }}
+
 
 @endsection
 
