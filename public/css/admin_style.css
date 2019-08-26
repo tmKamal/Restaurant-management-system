@@ -121,9 +121,9 @@ Styles Of Side-Bar
     list-style: none;
 }
 
-.list-container{
+/* .list-container{
     
-}
+} */
 
 .navigation_item{
     font-weight: 200;
@@ -179,6 +179,11 @@ Styles Of Side-Bar
     background-color: white;
     color: #111;
     transition: all 0.3s ease-in-out;
+}
+
+.navigation_item a{
+    color: #47484A;
+    text-decoration: none;
 }
 
 
@@ -245,6 +250,52 @@ Main Content
 
     color: #000;
     font-weight: 400;
+}
+
+/* User Drop down */
+.drop-user{
+    position: relative;
+}
+
+
+.popup-user{
+    margin-top: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    width: 150%;
+    height: auto;
+    position: absolute;
+    z-index: 100;
+    -webkit-box-shadow: 1px 3px 10px -2px rgba(0,0,0,0.86); 
+    box-shadow: 1px 3px 10px -2px rgba(0,0,0,0.86);
+    display: none;
+}
+.active{
+    display: block;
+}
+/* Arow icon  */
+/* Created using border */
+.popup-user:before{
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 40%;
+    transform: translateX(-50%);
+    border:10px solid;
+    border-color: transparent transparent #fff transparent;
+}
+
+.popup-user ul{
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+.popup-user ul li{
+    list-style: none;
+    line-height: 3.0;
+    display: block;
 }
 
 /*END-Navigation*/
@@ -389,11 +440,10 @@ these css only for the image input
     outline: -webkit-focus-ring-color auto 5px;
 }
 
-.inputfile + label * {
-    /* pointer-events: none; */
-    /* in case of FastClick lib use */
+/* .inputfile + label * {
+   
 }
-
+ */
 
 
 /*style-6*/
@@ -484,6 +534,81 @@ Responsive Media Queries
         margin-right: 0;
     }
 }
+
+/* ================================
+    -------Login Form-------------
+================================== */
+.container-login-bg{
+    width: 100%;  
+    min-height: 100vh;
+    background: #9053c7;
+    background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+}
+
+.login-wrap{
+    background: #fff;
+    border-radius: 10px;
+}
+
+.login-title{
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    
+}
+
+.loginButton {
+	background-color:#44c767;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:8px 31px;
+	text-decoration:none;
+    text-shadow:0px 1px 0px #2f6627;
+    width: 100%;
+    text-align: center;
+}
+.loginButton:hover {
+    background-color:#5cbf2a;
+    text-decoration: none;
+    color: #fff;
+}
+.loginButton:active {
+	position:relative;
+	top:1px;
+}
+
+.forgot-pass h6{
+    color: #888;
+    font-weight: 300;    
+
+
+}
+
+.forgot-pass a{
+    text-decoration: none;
+    color:rgb(30, 190, 30);
+    font-weight: 500;
+}
+.forgot-pass a:hover{
+    color: #20716a;
+    
+}
+
+/* Login End */
+
+
+
 
 
 
