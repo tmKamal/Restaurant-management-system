@@ -109,6 +109,16 @@
                             </div>
                         </div>
                     </li>
+                    <li class="navigation_item">
+                        <div class="row">
+                            <div class="col-2 icon-containerSidebar">
+                                <i class="material-icons crsidebarIcon">assignment</i>
+                            </div>
+                            <div class="col-10 sidebarText">
+                                <a href="/kitchen">KITCHEN</a>
+                            </div>
+                        </div>
+                    </li>
                     
                 </ul>
             </div>
