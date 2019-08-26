@@ -139,7 +139,7 @@
                     <td>{{$Event->location}}</td>
                     <td>{{$Event->type}}</td>
                     <td>{{$Event->massage}}</td>
-                    <td><a class=" btn btn-outline-primary " href="/{{$Event->id}}/Edit">Edit</a> </td>
+                    <td><a class=" btn btn-outline-primary " href="/EditEvent/{{$Event->id}}/Edit">Edit</a> </td>
                     <td><a class=" btn btn-danger " href="/DeleteEvent/{{$Event->id}}/Delete">Delete</a> </td>
                 </tr>
             @endforeach

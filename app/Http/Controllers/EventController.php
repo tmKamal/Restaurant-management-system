@@ -46,4 +46,39 @@ class EventController extends Controller
         $Events->delete();
         return redirect()->back();
     }
+    public function EditEventview($id){
+        $Events = Event::find($id);
+
+        return view('restaurant.updateEvent')->with('Eventdata',$Events);
+    }
+    public function EditEvent(Request $request){
+        $id=$request->id;
+        $name=$request->name;
+        $email=$request->email;
+        $phone=$request->phone;
+        $date=$request->date;
+        $time=$request->time;
+        $location=$request->location;
+        $type=$request->type;
+        $massage=$request->massage;
+
+        $Events = Event::find($id);
+
+        $Events -> name = $name;
+        $Events -> email = $email;
+        $Events -> phone = $phone;
+        $Events -> date = $date;
+        $Events -> time = $time;
+        $Events -> location = $location;
+        $Events -> type = $type;
+        $Events -> massage = $massage;
+
+        $Events -> save();
+
+        $Events=Event::all();
+        return view('restaurant.Event')->with('data',$Events);;
+
+
+
+    }
 }
