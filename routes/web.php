@@ -14,10 +14,13 @@
 Route::get('/', function () {
     return view('restaurant.index');
 });
-Route::get('/Event', function () {
-    return view('restaurant.Event');
-});
 
+//Event routes----
+
+Route::post('/Event/submit','EventController@submit');
+Route::get('/Event','EventController@index');
+
+Route::get('/DeleteEvent/{id}/Delete','EventController@DeleteEvent');
 //Employee routes----
 
 Route::get('/emp', function (){
@@ -40,7 +43,7 @@ Route::post('/employee/submit','EmployeeController@submit');
 
 
 
-Route::post('/Event/submit','EventController@submit');
+
 
 Auth::routes();
 

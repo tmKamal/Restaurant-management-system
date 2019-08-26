@@ -27,6 +27,12 @@
     margin-top: 1%;
     color: black;
 }
+.textR{
+    margin-bottom: 3%;
+    text-align: center;
+    color: #1f6fb2;
+
+}
 .text{
     color: #f66d9b;
 }
