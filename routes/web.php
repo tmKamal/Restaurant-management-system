@@ -29,6 +29,7 @@ Route::get('/emp-form', function (){
 });
 
 Route::get('/kitchen', 'KitchenController@index');
+Route::post('/kitchen/{oid}/assign','kitchenController@assign');
 
 //**************
 Route::get('/emp', 'EmployeeController@index');

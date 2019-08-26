@@ -18,7 +18,9 @@ class CreateOrdersTable extends Migration
             $table->string('itemid');
             $table->string('itemname');
             $table->string('userid');
+            $table->string('address');
             $table->integer('qty');
+            $table->double('price');
             $table->string('type');
             $table->string('chefid')->nullable();
             $table->string('paystatus');
