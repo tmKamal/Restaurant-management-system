@@ -27,7 +27,7 @@ class EmployeeController extends Controller
     public function create()
     {
         //form create
-        return view('restaurant.sal-c reate');
+        return view('restaurant.sal-create');
     }
 
     /**
@@ -75,7 +75,8 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $salaries = Salary::find($id);
+        return view('restaurant.edit-emp')->with('employee', $salaries);
     }
 
     /**
@@ -87,7 +88,15 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $salaries = Salary::find($id);
+        $salaries->empType = $request->input('empType');
+        $salaries->basicSal = $request->input('basicSal');
+        $salaries->otRate = $request->input('otRate');
+
+        $salaries->save();
+
+        return redirect('/emp')->with('success', 'Data Updated');
     }
 
     /**
@@ -98,6 +107,9 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $salaries = Salary::find($id);
+        $salaries->delete();
+
+        return redirect('/emp')->with('success', 'Data Deleted');
     }
 }

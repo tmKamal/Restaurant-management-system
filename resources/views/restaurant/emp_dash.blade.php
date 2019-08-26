@@ -14,15 +14,16 @@
 @section('content')
 
     <div class="jumbotron text-center">
-        <h1>Employee Overview</h1>
+        <h1>Employee Dashboard</h1>
 
     </div>
 
     <div class=" container">
         <div class="lead">
             <div class="col-md-12">
-                <h4>Salary Distribution</h4>
-                <a href="/emp-form" id="setup">Add New Record</a>
+                <h3>Salary Distribution</h3>
+                <a href="/emp-form" id="setup" class="float-right">+ Add New Record</a>
+                <br>
                 <div class="table-responsive">
                     <table id="mytable" class="table table-striped">
                         <thead>
