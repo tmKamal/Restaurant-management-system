@@ -10,22 +10,20 @@
 </div>
 
     <div class="container">
-        <?php
-            $i=1;
-            while($i<=4){
-                echo "<div class='row mt-4'>";
+        
+                <div class='row mt-4'>
 
-        $j = 1;
-        while($j<=4){?>
+                @foreach($menus as $menu) 
         <div class="col-md-3 col-sm-4">
-            <div class="card food-item" >
+        
+        <div class="card food-item" >
                 <img src="https://assets3.thrillist.com/v1/image/2797371/size/tmg-article_default_mobile.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Fresh</p>
+                    <h5 class="card-title">{{$menu->name}}</h5>
+                    <p class="card-text">{{$menu->category}}</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">1200.00/=</li>
+                    <li class="list-group-item">{{$menu->price}}/=</li>
 
                 </ul>
                 <div class="card-body">
@@ -33,15 +31,11 @@
                     <a href="#" class="card-link btn btn-success">Another link</a>
                 </div>
             </div>
+        
+            
         </div>
-
-        <?php
-            $j++;
-            }
-            echo "</div>";
-        $i++;
-            }
-        ?>
+        @endforeach
+        
     </div>
     
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
