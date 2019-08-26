@@ -310,6 +310,7 @@
                     =========================== -->
                     <div class="row justify-content-center">
                         <!--Custom page content-->
+                        
                         <div class="main_content col-lg-11 col-md-12 col-sm-12 ">
 
                             @yield('content')

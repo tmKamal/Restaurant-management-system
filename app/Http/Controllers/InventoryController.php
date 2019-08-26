@@ -38,8 +38,9 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
-        // $this->validate($request. [
-        //   'text' => 'required'
+        // $this->validate($request, [
+        //   'text' => 'required',
+        //   'number' => 'required'
         // ]);
 
         //Create item

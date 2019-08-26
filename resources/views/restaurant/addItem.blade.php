@@ -20,15 +20,15 @@
                         <div class="col-md-6 left-side">
                                 <div class="form-group">
                                     {{Form::label('pName','Enter Product Name')}}
-                                    {{Form::text('pName','',['class' => 'form-control','placeholder' => 'ex:- Sprite'])}}
+                                    {{Form::text('pName','',['class' => 'form-control','placeholder' => 'ex:- Sprite','required'])}}
                                 </div>
                                 <div class="form-group">
                                     {{Form::label('bName','Enter Brand Name')}}
-                                    {{Form::text('bName','',['class' => 'form-control','placeholder' => 'ex:- Coca-Cola'])}}
+                                    {{Form::text('bName','',['class' => 'form-control','placeholder' => 'ex:- Coca-Cola','required'])}}
                                 </div>
                                 <div class="form-group">
                                     {{Form::label('qty','Enter Quantity')}}
-                                    {{Form::number('qty','',['class' => 'form-control','placeholder' => 'ex:- 100'])}}
+                                    {{Form::number('qty','',['class' => 'form-control','placeholder' => 'ex:- 100','required'])}}
                                 </div>
                                 <div class="form-group">
                                     {{Form::label('cat','Category')}}
