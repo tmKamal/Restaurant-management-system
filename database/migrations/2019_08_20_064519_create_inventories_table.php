@@ -19,10 +19,10 @@ class CreateInventoriesTable extends Migration
             $table->string('Brand_Name');
             $table->string('Quantity');
             $table->string('Category');
-            $table->date('Ordered_Date')->nullable()->unsigned();
-            $table->date('Arrived_Date')->nullable()->unsigned();
-            $table->date('Expire_Date')->nullable()->unsigned();
-            $table->date('Manufactured_Date')->nullable()->unsigned();
+            $table->date('Ordered_Date')->nullable();
+            $table->date('Arrived_Date')->nullable();
+            $table->date('Expire_Date')->nullable();
+            $table->date('Manufactured_Date')->nullable();
             $table->timestamps();
         });
     }

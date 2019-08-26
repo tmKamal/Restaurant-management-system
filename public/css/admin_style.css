@@ -607,6 +607,12 @@ Responsive Media Queries
 
 /* Login End */
 
+/* button link fixed */
+button a:hover{
+    text-decoration: none;
+    color: #fff;
+}
+
 
 
 

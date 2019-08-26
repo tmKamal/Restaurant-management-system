@@ -43,13 +43,14 @@
                             </div>
                         </div>
                     </li>
+                    @can('isDriver')
                     <li class="navigation_item">
                         <div class="row">
                             <div class="col-2 icon-containerSidebar">
                                 <i class="material-icons crsidebarIcon">local_shipping</i>
                             </div>
                             <div class="col-10 sidebarText">
-                                ORDERS
+                                <a href="/delivery">DELIVERIES</a>
                             </div>
                         </div>
                     </li>
@@ -59,7 +60,7 @@
                                 <i class="material-icons crsidebarIcon">access_time</i>
                             </div>
                             <div class="col-10 sidebarText">
-                                PENDING
+                                <a href="/deliveryPending">PENDING</a>
                             </div>
                         </div>
                     </li>
@@ -69,10 +70,11 @@
                                 <i class="material-icons crsidebarIcon">done_all</i>
                             </div>
                             <div class="col-10 sidebarText">
-                                GROWTH
+                                <a href="/deliveryCompleted">COMPLETED</a>
                             </div>
                         </div>
                     </li>
+                    @endcan
                     @can('isManager')
                     <li class="navigation_item">
                         <div class="row">
@@ -166,7 +168,7 @@
                                     <!-- DropDown -->
                                     <div class="popup-user ">
                                         <ul>
-                                            <li><a href="#">Profile</a></li>
+                                            <li><a href="/admin">Profile</a></li>
                                             <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">SignOut</a>
                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"

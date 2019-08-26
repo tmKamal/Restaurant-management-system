@@ -15,9 +15,17 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('type')->default('dilivery');
-            $table->string('status')->default('pending');
+            $table->string('itemid');
+            $table->string('itemname');
+            $table->string('userid');
+            $table->string('address');
+            $table->integer('qty');
+            $table->double('price');
+            $table->string('type');
+            $table->string('chefid')->nullable();
+            $table->string('paystatus');
+            $table->string('chefstatus');
+            $table->string('status');
             $table->timestamps();
         });
     }
