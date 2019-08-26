@@ -12,8 +12,7 @@
 */
 
 
-
-
+Route::get('/', 'HomeController@index');
 //Event routes----
 
 Route::post('/Event/submit','EventController@submit');
@@ -90,3 +89,12 @@ Route::get('/menu', 'MenuController@index');
 Route::post('/menuSubmit', 'MenuController@submit');
 Route::get('/menuDetails', 'MenuController@details');
 Route::get('/menu/{mId}/delete', 'MenuController@delete');
+
+  
+ Route::get('/cart', 'OrderController@viewCart');
+Route::get('/addToCart/{id}', 'OrderController@addToCart');
+Route::get('/buyNow/{id}', 'OrderController@buyNow');
+Route::get('/paysuccess', 'OrderController@codpay');
+
+Route::get('/removeCartItem/{id}', 'OrderController@removeCartItem');
+Route::get('/payment', 'PaymentController@payView');
