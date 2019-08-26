@@ -12,6 +12,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="admin">Admin</a>
             </li>
+<<<<<<< Updated upstream
+=======
+            <li class="nav-item">
+                <a class="nav-link" href="/cart">Cart</a>
+            </li>
+>>>>>>> Stashed changes
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Dropdown
