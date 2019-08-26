@@ -11,13 +11,17 @@
 |
 */
 
+use App\Http\Controllers\EventController;
+use Illuminate\Support\Facades\App;
+
+
+
 Route::get('/', function () {
     return view('restaurant.index');
 });
-Route::get('/Event', function () {
-    return view('restaurant.Event');
-});
+Route::get('/Event', 'EventController@index');
 Route::post('/Event/submit','EventController@submit');
+
 
 Auth::routes();
 

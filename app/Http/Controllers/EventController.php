@@ -4,9 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Event;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+
 
 class EventController extends Controller
 {
+
+    public function index(){
+        $data = DB::table('events')->select('id','name','email','phone','date','time','location','type','massage')->get();
+        return view('restaurant.Event')->with('data',$data);
+    }
+
+    public function Edit($id){
+
+    }
+
+
     public function submit(Request $request){
         $this->validate($request,[
             'name' => 'required',
@@ -32,6 +46,15 @@ class EventController extends Controller
 
         $Event -> save();
 
-        return redirect('/');
+
+
+
+
+
+
+
+
     }
+
+
 }

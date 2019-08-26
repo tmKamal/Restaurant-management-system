@@ -16,6 +16,7 @@
 </head>
 <body>
     <div align="center" style="background: #000; padding: 50px">
+        <i class="fa fa-star"></i>
 
     </div>
 </body>
