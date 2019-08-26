@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('restaurant.index');
-});
+
+
 
 //Event routes----
 
@@ -26,6 +25,10 @@ Route::get('/EditEvent/{id}/Edit','EventController@EditEventview');
 
 Route::post('/eventsUpdate','EventController@EditEvent');
 
+Route::get('/', 'MenuController@showIndex');
+
+
+
 //Employee routes----
 
 Route::get('/emp', function (){
@@ -35,6 +38,8 @@ Route::get('/emp', function (){
 Route::get('/emp-form', function (){
     return view('restaurant.sal-create');
 });
+
+Route::get('/kitchen', 'KitchenController@index');
 
 //**************
 Route::get('/emp', 'EmployeeController@index');
@@ -79,3 +84,9 @@ Route::post('/addItem/submit', 'InventoryController@store');
 Route::get('/inventory','InventoryController@index');
 Route::get('/show/{id}', 'InventoryController@show');
 Route::resource('inventory', 'InventoryController');
+
+/* Routes for Menu */
+Route::get('/menu', 'MenuController@index');
+Route::post('/menuSubmit', 'MenuController@submit');
+Route::get('/menuDetails', 'MenuController@details');
+Route::get('/menu/{mId}/delete', 'MenuController@delete');
