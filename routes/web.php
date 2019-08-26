@@ -11,11 +11,23 @@
 |
 */
 
+
+
+
+//Event routes----
+
+Route::post('/Event/submit','EventController@submit');
+Route::get('/Event','EventController@index');
+
+Route::get('/DeleteEvent/{id}/Delete','EventController@DeleteEvent');
+
+Route::get('/EditEvent/{id}/Edit','EventController@EditEventview');
+
+Route::post('/eventsUpdate','EventController@EditEvent');
+
 Route::get('/', 'MenuController@showIndex');
 
-Route::get('/Event', function () {
-    return view('restaurant.Event');
-});
+
 
 //Employee routes----
 
@@ -41,7 +53,7 @@ Route::post('/employee/submit','EmployeeController@submit');
 
 
 
-Route::post('/Event/submit','EventController@submit');
+
 
 Auth::routes();
 
