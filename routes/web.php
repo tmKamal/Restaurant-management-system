@@ -27,6 +27,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin','adminController@index');
 });
 
+//Route for INVENTORY
+
 Route::get('/inventory', function () {
     return view('inventory');
 });
@@ -42,7 +44,6 @@ Route::get('/edit', function () {
 });
 
 Route::post('/addItem/submit', 'InventoryController@store');
-//Route for INVENTORY
 Route::get('/inventory','InventoryController@index');
 Route::get('/show/{id}', 'InventoryController@show');
 Route::resource('inventory', 'InventoryController');

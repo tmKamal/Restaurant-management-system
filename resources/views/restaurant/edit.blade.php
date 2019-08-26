@@ -18,41 +18,40 @@
                         <div class="col-md-6 left-side">
                                 <div class="form-group">
                                     {{Form::label('pName','Enter Product Name')}}
-                                    {{Form::text('pName', $item->pName,['class' => 'form-control'])}}
+                                    {{Form::text('pName', $item->Product_Name,['class' => 'form-control', 'required'])}}
                                 </div>
                                 <div class="form-group">
                                     {{Form::label('bName','Enter Brand Name')}}
-                                    {{Form::text('bName', $item->bName,['class' => 'form-control'])}}
+                                    {{Form::text('bName', $item->Brand_Name,['class' => 'form-control', 'required'])}}
                                 </div>
                                 <div class="form-group">
                                     {{Form::label('qty','Enter Quantity')}}
-                                    {{Form::number('qty', $item->qty,['class' => 'form-control'])}}
+                                    {{Form::number('qty', $item->Quantity,['class' => 'form-control', 'required'])}}
                                 </div>
                                 <div class="form-group">
                                     {{Form::label('cat','Category')}}
-                                    {{Form::select('cat', array('Bakery' => 'Bakery', 'Soft-Drink' => 'Soft-Drink', 'Desert' => 'Desert'))}}
+                                    {{Form::select('cat',$item->pluck('Category','id') , $item->Category, array('Bakery' => 'Bakery', 'Soft-Drink' => 'Soft-Drink', 'Desert' => 'Desert'))}}
                                 </div>
                                 <div class="form-group">
                                     {{Form::label('oDate','Ordered Date')}}
-                                    {{Form::date('date', \Carbon\Carbon::now()->format('d/m/Y'), array('class' => 'form-control', 'required' => '')) }}
+                                    {{Form::date('date', new \DateTime(), array('class' => 'form-control', 'required' => '')) }}
                                 </div>
                                 <div class="form-group">
                                     {{Form::label('aDate','Arrived Date')}}
-                                    {{Form::date('date', \Carbon\Carbon::now()->format('d/m/Y'), array('class' => 'form-control', 'required' => '')) }}
+                                    {{Form::date('date', new \DateTime(), array('class' => 'form-control', 'required' => '')) }}
                                 </div>
                                 <div class="form-group">
                                     {{Form::label('eDate','Expire Date')}}
-                                    {{Form::date('date', \Carbon\Carbon::now()->format('d/m/Y'), array('class' => 'form-control', 'required' => '')) }}
+                                    {{Form::date('date', new \DateTime(), array('class' => 'form-control', 'required' => '')) }}
                                 </div>
                                 <div class="form-group">
                                     {{Form::label('mDate','Manufactured Date')}}
-                                    {{Form::date('date', \Carbon\Carbon::now()->format('d/m/Y'), array('class' => 'form-control', 'required' => '')) }}
+                                    {{Form::date('date', new \DateTime(), array('class' => 'form-control', 'required' => '')) }}
                                 </div>
-                                {{Form::hidden('_method','PUT')}}
-                                 <div class="form-group">
-                                       <div class="submit">
-                                           {{Form::submit('Submit',['class' => 'btn btn-primary'])}}
-                                       </div>
+
+                                 {{Form::hidden('_method','PUT')}}
+                                 {{Form::submit('Submit',['class' => 'btn btn-primary'])}}
+
                                </div>
                             </div>
 
