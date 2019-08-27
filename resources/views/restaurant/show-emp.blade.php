@@ -16,8 +16,18 @@
     <hr>
     <h2>{{$employee->empType}}</h2>
     <br>
-    <p>Basic Salary : {{$employee->basicSal}}</p>
-    <p>O.T. Rate : {{$employee->otRate}}</p>
+    <table class="table table-borderless">
+        <tbody>
+        <tr>
+            <td><p>Basic Salary</p></td>
+            <td><p>{{$employee->basicSal}} LKR</p></td>
+        </tr>
+        <tr>
+            <td><p>Over Time Rate</p></td>
+            <td><p>{{$employee->otRate}} LKR</p></td>
+        </tr>
+        </tbody>
+    </table>
     <hr>
     <a href="/employee/{{$employee->id}}/edit" class="btn btn-outline-success">Edit</a>
     {{ Form::open(['action' => ['EmployeeController@destroy', $employee->id], 'method' => 'POST', 'class' => 'float-right']) }}
@@ -32,23 +42,32 @@
     <br>
     <div class="table-responsive">
         <table id="mytable" class="table table-striped">
-            <thead>
+            <thead class="thead-dark">
             <th>Employee ID</th>
             <th>Employee</th>
             <th>Salary status</th>
             <th>More</th>
             </thead>
             <tbody>
-            {{--@if(count($employee)>0)--}}
-                {{--@foreach($employee as $salary)--}}
-                    {{--<tr>--}}
-                        {{--<td><a href="employee/{{$salary->id}}">{{$salary->empType}}</a> </td>--}}
-                        {{--<td>{{$salary->basicSal}} LKR</td>--}}
-                        {{--<td>{{$salary->otRate}} LKR</td>--}}
-                        {{--<td><p data-placement="top" data-toggle="tooltip" title="Edit"><a href="employee/{{$salary->id}}"> <button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" >VIEW</button></a></p></td>--}}
-                    {{--</tr>--}}
-                {{--@endforeach--}}
-            {{--@endif--}}
+                <tr>
+                    <td>EMP01</td>
+                    <td>Kapila Senarathna</td>
+                    <td>PAID</td>
+                    <td><a href="/restaurant/emp-overview">VIEW</a></td>
+                </tr>
+                <tr>
+                    <td>EMP02</td>
+                    <td>Sandun Madhushanka</td>
+                    <td>UNPAID</td>
+                    <td><a href="/restaurant/emp-overview">VIEW</a></td>
+                </tr>
+                <tr>
+                    <td>EMP05</td>
+                    <td>Kusal Mendis</td>
+                    <td>PAID</td>
+                    <td><a href="/restaurant/emp-overview">VIEW</a></td>
+                </tr>
+   
             </tbody>
         </table>
     </div>
