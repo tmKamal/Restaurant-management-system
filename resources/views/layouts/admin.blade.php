@@ -29,7 +29,7 @@
         ==========================-->
         <div id="sidebar-wrapper">
             <div class="logo-side-bar ">
-                <img src="/img/logo.png" alt="logo">
+                <a href="/"><img src="/img/logo.png" alt="logo"></a>    
             </div>
             <div class="first-list-item">
                 <ul class="navigation_section list-container">
@@ -40,6 +40,16 @@
                             </div>
                             <div class="col-10 sidebarText">
                                 MESSAGES
+                            </div>
+                        </div>
+                    </li>
+                    <li class="navigation_item">
+                        <div class="row">
+                            <div class="col-2 icon-containerSidebar">
+                                <i class="material-icons crsidebarIcon">account_box</i>
+                            </div>
+                            <div class="col-10 sidebarText">
+                                PROFILE
                             </div>
                         </div>
                     </li>
@@ -87,7 +97,7 @@
                         </div>
                     </li>
                     @endcan
-
+                    @can('isManager')
                     <li class="navigation_item">
                         <div class="row">
                             <div class="col-2 icon-containerSidebar">
@@ -101,6 +111,8 @@
                             </div>
                         </div>
                     </li>
+                    @endcan
+                    @can('isManager')
                     <li class="navigation_item">
                         <div class="row">
                             <div class="col-2 icon-containerSidebar">
@@ -111,6 +123,8 @@
                             </div>
                         </div>
                     </li>
+                    @endcan
+                    @can('isChef')
                     <li class="navigation_item">
                         <div class="row">
                             <div class="col-2 icon-containerSidebar">
@@ -121,6 +135,8 @@
                             </div>
                         </div>
                     </li>
+                    @endcan
+                    @can('isManager')
                     <li class="navigation_item">
                         <div class="row">
                             <div class="col-2 icon-containerSidebar">
@@ -141,6 +157,7 @@
                             </div>
                         </div>
                     </li>
+                    @endcan
                     
                 </ul>
             </div>
@@ -190,9 +207,11 @@
                         <div class="container">
                             <a href="#" id="tog_btn" onclick="openSlide()"><i class="material-icons crMenu">menu</i></a>
                             <ul>
-                                <li><a href="contactus.html"><i class="material-icons top-nav-icon">search</i></a></li>
+                                <li><a href="#"><i class="material-icons top-nav-icon">search</i></a></li>
+                                
                                 <li><a href="index.html"><i
                                             class="material-icons top-nav-icon">notifications_none</i></a></li>
+                                <li><a href="#">{{ Auth::user()->type }}</a></li>
                                 <li class="drop-user"><a href="#">{{ Auth::user()->name }}<i
                                             class="material-icons top-nav-icon">account_circle</i></a>
                                     <!-- DropDown -->

@@ -11,6 +11,8 @@
 <script src="https://use.fontawesome.com/c560c025cf.js"></script>
 
 
+
+
 @if(count($items))
 <div class="container">
     <div class="card shopping-cart">
@@ -21,6 +23,8 @@
             <div class="clearfix"></div>
         </div>
         <div class="card-body">
+                @php($total=0)
+
             @foreach($items as $item)
                 <!-- PRODUCT -->
             <div class="row">
@@ -37,6 +41,7 @@
                     <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
                         <h6><strong>{{$item->price}} <span class="text-muted">x</span></strong></h6>
                     </div>
+                    @php($price = $item->price * $item->qty)
                     <div class="col-4 col-sm-4 col-md-4">
                         <div class="quantity">
                             <input type="button" value="+" class="plus">
@@ -53,6 +58,8 @@
                 </div>
             </div>
             <hr>
+            @php($total += $price)
+
                 <!-- END PRODUCT -->
             @endforeach
 
@@ -108,7 +115,7 @@
             <div class="pull-right" style="margin: 10px">
                 <a href="/payment" class="btn btn-success pull-right">Checkout</a>
                 <div class="pull-right" style="margin: 5px">
-                    Total price: <b>50.00€</b>
+                Total price: <b>{{$price}}</b>
                 </div>
             </div>
         </div>

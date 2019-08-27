@@ -30,23 +30,23 @@
                                 </div>
                                 <div class="form-group">
                                     {{Form::label('cat','Category')}}
-                                    {{Form::select('cat',$item->pluck('Category','id') , $item->Category, array('Bakery' => 'Bakery', 'Soft-Drink' => 'Soft-Drink', 'Desert' => 'Desert'))}}
+                                    {{Form::select('cat', array('Bakery' => 'Bakery', 'Soft-Drink' => 'Soft-Drink', 'Desert' => 'Desert'))}}
                                 </div>
                                 <div class="form-group">
                                     {{Form::label('oDate','Ordered Date')}}
-                                    {{Form::date('date', new \DateTime(), array('class' => 'form-control', 'required' => '')) }}
+                                    {{Form::date('date',' ', array('class' => 'form-control', 'required' => '')) }}
                                 </div>
                                 <div class="form-group">
                                     {{Form::label('aDate','Arrived Date')}}
-                                    {{Form::date('date', new \DateTime(), array('class' => 'form-control', 'required' => '')) }}
+                                    {{Form::date('date',' ', array('class' => 'form-control', 'required' => '')) }}
                                 </div>
                                 <div class="form-group">
                                     {{Form::label('eDate','Expire Date')}}
-                                    {{Form::date('date', new \DateTime(), array('class' => 'form-control', 'required' => '')) }}
+                                    {{Form::date('date',' ', array('class' => 'form-control', 'required' => '')) }}
                                 </div>
                                 <div class="form-group">
                                     {{Form::label('mDate','Manufactured Date')}}
-                                    {{Form::date('date', new \DateTime(), array('class' => 'form-control', 'required' => '')) }}
+                                    {{Form::date('date',' ', array('class' => 'form-control', 'required' => '')) }}
                                 </div>
 
                                  {{Form::hidden('_method','PUT')}}
