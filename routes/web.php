@@ -38,8 +38,13 @@ Route::get('/emp-form', function (){
     return view('restaurant.sal-create');
 });
 
+//Kitchen routes
+
 Route::get('/kitchen', 'KitchenController@index');
 Route::post('/kitchen/{oid}/assign','kitchenController@assign');
+
+//Utility routes
+Route::get('/utility', 'UtilityController@index');
 
 //**************
 Route::get('/emp', 'EmployeeController@index');
