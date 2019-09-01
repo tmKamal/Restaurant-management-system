@@ -12,7 +12,9 @@
 
 
 
+
 @php($total=0)
+
 
 @if(count($items))
 <div class="container">
@@ -24,6 +26,8 @@
             <div class="clearfix"></div>
         </div>
         <div class="card-body">
+
+
 
             @foreach($items as $item)
                 <!-- PRODUCT -->
@@ -115,7 +119,9 @@
             <div class="pull-right" style="margin: 10px">
                 <a href="/payment" class="btn btn-success pull-right">Checkout</a>
                 <div class="pull-right" style="margin: 5px">
+
                 Total price: <b>{{$total}}</b>
+
                 </div>
             </div>
         </div>

@@ -7,10 +7,13 @@
 
 <div class="container">
     <img src="https://dailytimes.com.pk/assets/uploads/2018/11/21/howcuttingdo.jpg" alt="" style="width: 100%;">
+
 </div>
 <div class="container mt-3">
     @include('layouts.messages')
 </div>
+
+
     <div class="container">
         
                 <div class='row mt-4'>

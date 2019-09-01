@@ -26,12 +26,12 @@ class OrderController extends Controller
             DB::table('cart')->where([['itemid','=',$id],['userid','like',Auth::user()->id]])->update(['qty'=>$qty+1]);
             return redirect()->back()->with('success','Item already in the cart. Quantity has been increased');
         }else{
-        $prod = DB::table('item')->find($id);
+        $prod = DB::table('menus')->find($id);
         $item = [
             'image' => 'https://assets3.thrillist.com/v1/image/2797371/size/tmg-article_default_mobile.jpg',
             'itemid' => $request->id,
             'userid' => Auth::user()->id,
-            'itemname' => $prod->itemname,
+            'itemname' => $prod->name,
             'price' => $prod->price,
             'qty' => 1
 
@@ -69,8 +69,11 @@ class OrderController extends Controller
                 'userid' => Auth::user()->id,
                 'qty' => $item->qty,
                 'paystatus' => 'COD',
-                'type' => 'Type',
-                'status' => 'unpaid'
+                'price' => 400,
+                'address' => 'sample address',
+                'type' => 'delivery',
+                'status' => 'ready',
+                'chefstatus' => 'in que'
 
             ];
             DB::table('orders')->insert($order);

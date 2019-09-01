@@ -29,7 +29,7 @@
         ==========================-->
         <div id="sidebar-wrapper">
             <div class="logo-side-bar ">
-                <img src="/img/logo.png" alt="logo">
+                <a href="/"><img src="/img/logo.png" alt="logo"></a>    
             </div>
             <div class="first-list-item">
                 <ul class="navigation_section list-container">
@@ -46,10 +46,21 @@
                     <li class="navigation_item">
                         <div class="row">
                             <div class="col-2 icon-containerSidebar">
+                                <i class="material-icons crsidebarIcon">account_box</i>
+                            </div>
+                            <div class="col-10 sidebarText">
+                                PROFILE
+                            </div>
+                        </div>
+                    </li>
+                    @can('isDriver')
+                    <li class="navigation_item">
+                        <div class="row">
+                            <div class="col-2 icon-containerSidebar">
                                 <i class="material-icons crsidebarIcon">local_shipping</i>
                             </div>
                             <div class="col-10 sidebarText">
-                                ORDERS
+                                <a href="/delivery">DELIVERIES</a>
                             </div>
                         </div>
                     </li>
@@ -59,7 +70,7 @@
                                 <i class="material-icons crsidebarIcon">access_time</i>
                             </div>
                             <div class="col-10 sidebarText">
-                                PENDING
+                                <a href="/deliveryPending">PENDING</a>
                             </div>
                         </div>
                     </li>
@@ -69,10 +80,11 @@
                                 <i class="material-icons crsidebarIcon">done_all</i>
                             </div>
                             <div class="col-10 sidebarText">
-                                GROWTH
+                                <a href="/deliveryCompleted">COMPLETED</a>
                             </div>
                         </div>
                     </li>
+                    @endcan
                     @can('isManager')
                     <li class="navigation_item">
                         <div class="row">
@@ -85,7 +97,7 @@
                         </div>
                     </li>
                     @endcan
-
+                    @can('isManager')
                     <li class="navigation_item">
                         <div class="row">
                             <div class="col-2 icon-containerSidebar">
@@ -99,6 +111,8 @@
                             </div>
                         </div>
                     </li>
+                    @endcan
+                    @can('isManager')
                     <li class="navigation_item">
                         <div class="row">
                             <div class="col-2 icon-containerSidebar">
@@ -109,6 +123,8 @@
                             </div>
                         </div>
                     </li>
+                    @endcan
+                    @can('isChef')
                     <li class="navigation_item">
                         <div class="row">
                             <div class="col-2 icon-containerSidebar">
@@ -119,6 +135,8 @@
                             </div>
                         </div>
                     </li>
+                    @endcan
+                    @can('isManager')
                     <li class="navigation_item">
                         <div class="row">
                             <div class="col-2 icon-containerSidebar">
@@ -139,6 +157,7 @@
                             </div>
                         </div>
                     </li>
+                    @endcan
                     
                 </ul>
             </div>
@@ -188,15 +207,17 @@
                         <div class="container">
                             <a href="#" id="tog_btn" onclick="openSlide()"><i class="material-icons crMenu">menu</i></a>
                             <ul>
-                                <li><a href="contactus.html"><i class="material-icons top-nav-icon">search</i></a></li>
+                                <li><a href="#"><i class="material-icons top-nav-icon">search</i></a></li>
+                                
                                 <li><a href="index.html"><i
                                             class="material-icons top-nav-icon">notifications_none</i></a></li>
+                                <li><a href="#">{{ Auth::user()->type }}</a></li>
                                 <li class="drop-user"><a href="#">{{ Auth::user()->name }}<i
                                             class="material-icons top-nav-icon">account_circle</i></a>
                                     <!-- DropDown -->
                                     <div class="popup-user ">
                                         <ul>
-                                            <li><a href="#">Profile</a></li>
+                                            <li><a href="/admin">Profile</a></li>
                                             <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">SignOut</a>
                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -308,6 +329,7 @@
                     =========================== -->
                     <div class="row justify-content-center">
                         <!--Custom page content-->
+                        
                         <div class="main_content col-lg-11 col-md-12 col-sm-12 ">
 
                             @yield('content')
