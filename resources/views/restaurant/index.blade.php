@@ -27,8 +27,8 @@
 
                 </ul>
                 <div class="card-body">
-                    <a href="#" class="card-link btn btn-success">Card link</a>
-                    <a href="#" class="card-link btn btn-success">Another link</a>
+                    
+                    <a href="/addToCart/{{$menu->id}}" class="card-link btn btn-success">ADD TO CART</a>
                 </div>
             </div>
         

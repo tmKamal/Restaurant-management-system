@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+
+
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +27,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+        $items = DB::table('item')->select('id','itemname','price','status')->get();
+        return view('restaurant.index')->with('items',$items);
+
         return view('home');
+
     }
 }
