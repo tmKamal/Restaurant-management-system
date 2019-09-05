@@ -15,13 +15,6 @@ Route::get('/', function () {
     return view('restaurant.index');
 });
 
-//Rating routes----
-
-
-Route::get('/Rating', function () {
-    return view('restaurant.Rating');
-});
-
 //Event routes----
 
 Route::post('/Event/submit','EventController@submit');
@@ -42,8 +35,6 @@ Route::get('/emp', function (){
 Route::get('/emp-form', function (){
     return view('restaurant.sal-create');
 });
-
-
 
 //**************
 Route::get('/emp', 'EmployeeController@index');
