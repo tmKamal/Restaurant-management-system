@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('restaurant.index');
 });
 
+Route::get('/Rating', function () {
+    return view('restaurant.Rating');
+});
 //Event routes----
 
 Route::post('/Event/submit','EventController@submit');
