@@ -614,6 +614,13 @@ button a:hover{
 }
 
 
+/* Google Map Styles */
+
+#map{
+    height: 400px;
+}
+
+/* End GMap */
 
 
 

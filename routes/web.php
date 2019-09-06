@@ -63,6 +63,7 @@ Route::post('/emp/{type}/update','adminController@updateEmp');
 //delivery
 
 Route::get('/delivery','adminController@showDelivery');
+
 Route::get('/deliveryPending','adminController@showPendingDelivery');
 Route::get('/deliveryCompleted','adminController@showCompletedDelivery');
 Route::get('/delivery/{dId}/pick','adminController@pick');
@@ -72,6 +73,7 @@ Route::get('/delivery/{dId}/remove','adminController@remove');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin','adminController@index');
     Route::get('/employeeManagement','adminController@showEmployeeMgt');
+    Route::get('/deliveryMap','adminController@showDeliveryMap');
 });
 
 

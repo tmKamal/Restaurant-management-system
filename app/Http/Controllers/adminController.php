@@ -64,6 +64,9 @@ class adminController extends Controller
         return view('restaurant.deliveryPending')->with('deliverys',$oders);
 
     }
+    function showDeliveryMap(){
+        return view('restaurant.gMap');
+    }
     function delivered($dId){
         $deli=Order::find($dId);
         //dd($deli);

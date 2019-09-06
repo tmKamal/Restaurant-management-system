@@ -358,6 +358,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
     </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdzFLvmBoH_1QzB7xelo7jO1ZoKgvUvog&callback=initMap"
+    async defer></script>
+    <script src="js/gMap.js"></script>
     <script src="js/admin.js"></script>
 </body>
 
