@@ -1,8 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
-
+    <!-- Form -->
     {!! Form::open(['action' => 'InventoryController@store','method' => 'POST']) !!}
+    <!-- Go back button -->
     <div align="right">
           <a class="button button1" href="/inventory">Go Back</a>
     </div>
@@ -55,13 +56,10 @@
                                            {{Form::submit('Submit',['class' => 'btn btn-primary'])}}
                                        </div>
                                </div>
-                            </div>
-
-
+                          </div>
+                          </div>
                     </div>
                 </div>
-
-               </div>
     </div>
     {!! Form::close() !!}
 

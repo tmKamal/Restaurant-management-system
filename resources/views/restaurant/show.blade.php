@@ -3,7 +3,7 @@
 @section('content')
     <a class="button button1" href="/inventory">Go Back</a>
     <div align="center">
-      <table class="zui-table" style="width:45%">
+      <table class="zui-table" style="width:50%">
         <tr>
           <td><h2>Product Name :</h2></td>
           <td><h3>{{$item->Product_Name}}</h3></td>
@@ -43,9 +43,11 @@
       </table>
     </div>
 
+    <!-- Edit button -->
     <a href="/inventory/{{$item->id}}/edit" class="button button1">Edit</a>
     {!! Form::open(['action' => ['InventoryController@destroy', $item -> id],'method' => 'POST',]) !!}
         {{Form::hidden('_method','DELETE')}}
+    <!-- Delete button -->
         <div align="right">
           {{Form::submit('Delete',['class' => "button button2"])}}
         </div>

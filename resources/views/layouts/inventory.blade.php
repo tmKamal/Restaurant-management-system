@@ -92,7 +92,7 @@
               </div>
           </div><!-- Info-card-End -->
       </div>
-      
+
   @yield('content')
 </body>
 </html>
