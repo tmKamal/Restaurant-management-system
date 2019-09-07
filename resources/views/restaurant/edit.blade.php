@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-
+    <!-- Form -->
     {!! Form::open(['action' => ['InventoryController@update', $item -> id],'method' => 'POST']) !!}
     <div class="container">
         <div class="row">
@@ -48,17 +48,12 @@
                                     {{Form::label('mDate','Manufactured Date')}}
                                     {{Form::date('mDate', $item->Manufactured_Date, array('class' => 'form-control', 'required' => '')) }}
                                 </div>
-
                                  {{Form::hidden('_method','PUT')}}
                                  {{Form::submit('Submit',['class' => 'btn btn-primary'])}}
-
                                </div>
                             </div>
-
-
                     </div>
                 </div>
-
                </div>
     </div>
     {!! Form::close() !!}

@@ -53,9 +53,7 @@ class InventoryController extends Controller
         $inventory -> Expire_Date = $request -> input('eDate');
         $inventory -> Manufactured_Date = $request -> input('mDate');
 
-
         $inventory->save();
-
         return redirect('inventory')->with('success', 'Item added');
 
 
@@ -105,9 +103,7 @@ class InventoryController extends Controller
       $inventory -> Expire_Date = $request -> input('eDate');
       $inventory -> Manufactured_Date = $request -> input('mDate');
 
-
       $inventory->save();
-
       return redirect('inventory')->with('success', 'Item Updated');
     }
 

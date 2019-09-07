@@ -1,30 +1,13 @@
 @extends('layouts.admin')
+
 @section('content')
-<!--form-->
-  <h1>Inventory</h1>
-  <br>
-  <!-- Search button -->
-  <form action="/search" method="POST" role="search">
-    {{ csrf_field() }}
-    <div class="col-xs-11">
-      <div class="input-group">
-        <input type="text" class="form-control" name="q" placeholder="Search Products">
-        <span class="input-group-btn">
-            <button type="submit" class="btn btn-default">
-                <span class="glyphicon glyphicon-search"></span>
-            </button>
-        </span>
-      </div>
-    </div>
-  </form>
-<br>
-  <!-- Add Item Button -->
-  <div align="right">
-    <br>
-    <a href="/addItem"><button class="button button1" type="button" name="Add_Product" >+Add Product</button></a>
-  </div><br>
-  <!-- Inventory table -->
-  @if(count($inventory) > 0)
+    <!-- Go back button -->
+    <a class="button button1" href="/inventory">Go Back</a>
+    <div align="center">
+
+    <!-- Table -->
+    @if(isset($details))
+      <h3> The Search results for your query <b>{{ $query }}</b> are:</h3>
       <div class="well">
         <table class="zui-table" style="width:100%" >
           <thead>
@@ -40,7 +23,7 @@
             <th><h5>Manufactured Date</h5></th>
           </tr>
         </thead>
-        @foreach($inventory as $item)
+        @foreach($details as $item)
           <tr>
             <td>{{$item->id}}</td>
             <td><a href="inventory/{{$item->id}}">{{$item->Product_Name}}</a></td>
@@ -55,5 +38,7 @@
         @endforeach
         </table>
       </div>
+      @elseif(isset($message))
+      <p>{{$message}}</p>
   @endif
 @endsection
