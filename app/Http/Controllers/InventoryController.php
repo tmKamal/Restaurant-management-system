@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Inventory;
-use Carbon\Carbon;
 
 class InventoryController extends Controller
 {
@@ -45,14 +44,14 @@ class InventoryController extends Controller
 
         //Create item
         $inventory = new Inventory;
-        $inventory->Product_Name = $request->input('pName');
-        $inventory->Brand_Name = $request->input('bName');
-        $inventory->Quantity = $request->input('qty');
-        $inventory->Category = $request->input('cat');
-        $inventory->Ordered_Date =Carbon::parse($request->input('oDate'));
-        $inventory->Arrived_Date = Carbon::parse($request->input('aDate'));
-        $inventory->Expire_Date = Carbon::parse($request->input('eDate'));
-        $inventory->Manufactured_Date = Carbon::parse($request->input('mDate'));
+        $inventory -> Product_Name = $request -> input('pName');
+        $inventory -> Brand_Name = $request -> input('bName');
+        $inventory -> Quantity = $request -> input('qty');
+        $inventory -> Category = $request -> input('cat');
+        $inventory -> Ordered_Date = $request -> input('oDate');
+        $inventory -> Arrived_Date = $request -> input('aDate');
+        $inventory -> Expire_Date = $request -> input('eDate');
+        $inventory -> Manufactured_Date = $request -> input('mDate');
 
 
         $inventory->save();
@@ -97,14 +96,14 @@ class InventoryController extends Controller
     public function update(Request $request, $id)
     {
       $inventory = Inventory::find($id);
-      $inventory->Product_Name = $request->input('pName');
-      $inventory->Brand_Name = $request->input('bName');
-      $inventory->Quantity = $request->input('qty');
-      $inventory->Category = $request->input('cat');
-      $inventory->Ordered_Date =Carbon::parse($request->input('oDate'));
-      $inventory->Arrived_Date = Carbon::parse($request->input('aDate'));
-      $inventory->Expire_Date = Carbon::parse($request->input('eDate'));
-      $inventory->Manufactured_Date = Carbon::parse($request->input('mDate'));
+      $inventory -> Product_Name = $request -> input('pName');
+      $inventory -> Brand_Name = $request -> input('bName');
+      $inventory -> Quantity = $request -> input('qty');
+      $inventory -> Category = $request -> input('cat');
+      $inventory -> Ordered_Date = $request -> input('oDate');
+      $inventory -> Arrived_Date = $request -> input('aDate');
+      $inventory -> Expire_Date = $request -> input('eDate');
+      $inventory -> Manufactured_Date = $request -> input('mDate');
 
 
       $inventory->save();

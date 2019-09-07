@@ -36,19 +36,19 @@
                                 </div>
                                 <div class="form-group">
                                     {{Form::label('oDate','Ordered Date')}}
-                                    {{Form::date('date', \Carbon\Carbon::now()->format('d/m/Y'), array('class' => 'form-control', 'required' => '')) }}
+                                    {{Form::date('oDate', \Carbon\Carbon::now()->format('d/m/Y'), array('class' => 'form-control', 'required' => '')) }}
                                 </div>
                                 <div class="form-group">
                                     {{Form::label('aDate','Arrived Date')}}
-                                    {{Form::date('date', \Carbon\Carbon::now()->format('d/m/Y'), array('class' => 'form-control', 'required' => '')) }}
+                                    {{Form::date('aDate', \Carbon\Carbon::now()->format('d/m/Y'), array('class' => 'form-control', 'required' => '')) }}
                                 </div>
                                 <div class="form-group">
                                     {{Form::label('eDate','Expire Date')}}
-                                    {{Form::date('date', \Carbon\Carbon::now()->format('d/m/Y'), array('class' => 'form-control', 'required' => '')) }}
+                                    {{Form::date('eDate', \Carbon\Carbon::now()->format('d/m/Y'), array('class' => 'form-control', 'required' => '')) }}
                                 </div>
                                 <div class="form-group">
                                     {{Form::label('mDate','Manufactured Date')}}
-                                    {{Form::date('date', \Carbon\Carbon::now()->format('d/m/Y'), array('class' => 'form-control', 'required' => '')) }}
+                                    {{Form::date('mDate', \Carbon\Carbon::now()->format('d/m/Y'), array('class' => 'form-control', 'required' => '')) }}
                                 </div>
                                  <div class="form-group">
                                        <div class="submit">
@@ -64,4 +64,5 @@
                </div>
     </div>
     {!! Form::close() !!}
+
 @endsection
