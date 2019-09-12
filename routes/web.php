@@ -110,3 +110,5 @@ Route::get('/paysuccess', 'OrderController@codpay');
 
 Route::get('/removeCartItem/{id}', 'OrderController@removeCartItem');
 Route::get('/payment', 'PaymentController@payView');
+Route::get('/increase/{id}', 'OrderController@increase');
+Route::get('/decrease/{id}', 'OrderController@decrease');

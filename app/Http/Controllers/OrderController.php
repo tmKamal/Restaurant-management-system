@@ -16,6 +16,10 @@ class OrderController extends Controller
 
     public function addToCart(Request $request, $id){
 
+        if(!isset(Auth::user()->id)){
+            return redirect()->back()->with('error','You have to login to your account');
+        }
+
         $qty = DB::table('cart')->where([['itemid','=',$id],['userid','like',Auth::user()->id]])->value('qty');
 
         if(isset($qty)){
@@ -77,5 +81,25 @@ class OrderController extends Controller
         }
 
         return view('restaurant.orderedItems')->with('success','order successfully completed');
+    }
+
+    public function increase($id){
+        $qty = DB::table('cart')->where([['itemid','=',$id],['userid','like',Auth::user()->id]])->value('qty');
+
+        DB::table('cart')->where([['itemid','=',$id],['userid','like',Auth::user()->id]])->update(['qty'=>$qty+1]);
+        return redirect()->back()->with('success','Quantity increased');
+    }
+
+    public function decrease($id){
+        $qty = DB::table('cart')->where([['itemid','=',$id],['userid','like',Auth::user()->id]])->value('qty');
+
+        if($qty==1){
+            return redirect()->back()->with('error','Quantity can\'t be decreased');
+        }else{
+            DB::table('cart')->where([['itemid','=',$id],['userid','like',Auth::user()->id]])->update(['qty'=>$qty-1]);
+            return redirect()->back()->with('success','Quantity decreased.');
+        }
+
+
     }
 }
