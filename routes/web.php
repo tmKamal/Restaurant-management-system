@@ -69,12 +69,22 @@ Route::get('/deliveryCompleted','adminController@showCompletedDelivery');
 Route::get('/delivery/{dId}/pick','adminController@pick');
 Route::get('/delivery/{dId}/delivered','adminController@delivered');
 Route::get('/delivery/{dId}/remove','adminController@remove');
+Route::get('/delivery/{did}/showMap','adminController@showMap');
+
+
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin','adminController@index');
     Route::get('/employeeManagement','adminController@showEmployeeMgt');
     Route::get('/deliveryMap','adminController@showDeliveryMap');
 });
+//Report Generating Routes
+Route::get('/exportDeliveryExcel', 'adminController@exportDelivery');
+//Live Search 
+Route::get('/live_search', 'LiveSearch@index');
+Route::get('/live_search/action', 'LiveSearch@action')->name('live_search.action');
+
+/* -----END - Routes CR------------- */
 
 
 //Route for INVENTORY
