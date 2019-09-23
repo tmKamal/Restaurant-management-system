@@ -1,7 +1,9 @@
 <?php
 
+use App\Event;
 use Illuminate\Support\Facades\Input;
 use App\Inventory;
+use App\events;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +30,30 @@ Route::get('/EditEvent/{id}/Edit','EventController@EditEventview');
 Route::post('/eventsUpdate','EventController@EditEvent');
 
 Route::get('/', 'MenuController@showIndex');
+
+
+Route::post('/searchE',function (){
+   $q = Input::get('q');
+   if($q != ""){
+       $event = Event::where('name', 'LIKE' , '%' . $q . '%')
+           ->orWhere('email', 'LIKE' , '%' . $q . '%')
+           ->orWhere('location', 'LIKE' , '%' . $q . '%')
+           ->orWhere('type', 'LIKE' , '%' . $q . '%')
+           ->orWhere('massage', 'LIKE' , '%' . $q . '%')
+           ->orWhere('phone', 'LIKE' , '%' . $q . '%')
+           ->orWhere('date', 'LIKE' , '%' . $q . '%')
+           ->get();
+       if(count($event)>0)
+           return view('/restaurant.eventSearch')->withDetails($event)->withQuery($q);
+   }
+    return view('/restaurant.eventSearch')->withMessage("No Events found!!!!!!!!!!!.......");
+});
+
+
+
+Route::get('/Rating', function () {
+    return view('restaurant.Rating');
+});
 
 
 
