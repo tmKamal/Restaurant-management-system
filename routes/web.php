@@ -100,6 +100,8 @@ Route::post('/addItem/submit', 'InventoryController@store');
 Route::get('/inventory','InventoryController@index');
 Route::get('/show/{id}', 'InventoryController@show');
 Route::resource('inventory', 'InventoryController');
+Route::get('/lowstock','InventoryController@lowstock');
+Route::get('/expired','InventoryController@expired');
 
 //Inventory Search
 Route::post( '/search', function () {
