@@ -1,6 +1,14 @@
 @extends('layouts.admin')
 
 @section('content')
+<!-- Error Alert -->
+@if(count($errors) > 0)
+    @foreach($errors->all() as $error)
+        <div class="alert alert-danger">
+            {{$error}}
+        </div>
+    @endforeach
+@endif
     <!-- Form -->
     {!! Form::open(['action' => 'InventoryController@store','method' => 'POST']) !!}
     <!-- Go back button -->
@@ -15,7 +23,6 @@
         </div>
                 <div class="row">
                     <div class="col-md-12">
-
                         <div class="row event-form-wrap">
                             <div class="divider"></div>
                         <div class="col-md-6 left-side">
@@ -28,7 +35,7 @@
                                     {{Form::text('bName','',['class' => 'form-control','placeholder' => 'ex:- Coca-Cola','required'])}}
                                 </div>
                                 <div class="form-group">
-                                    {{Form::label('qty','Enter Quantity')}}
+                                    {{Form::label('Quantity','Enter Quantity')}}
                                     {{Form::number('qty','',['class' => 'form-control','placeholder' => 'ex:- 100','required'])}}
                                 </div>
                                 <div class="form-group">
@@ -44,12 +51,12 @@
                                     {{Form::date('aDate', \Carbon\Carbon::now()->format('d/m/Y'), array('class' => 'form-control', 'required' => '')) }}
                                 </div>
                                 <div class="form-group">
-                                    {{Form::label('eDate','Expire Date')}}
-                                    {{Form::date('eDate', \Carbon\Carbon::now()->format('d/m/Y'), array('class' => 'form-control', 'required' => '')) }}
-                                </div>
-                                <div class="form-group">
                                     {{Form::label('mDate','Manufactured Date')}}
                                     {{Form::date('mDate', \Carbon\Carbon::now()->format('d/m/Y'), array('class' => 'form-control', 'required' => '')) }}
+                                </div>
+                                <div class="form-group">
+                                    {{Form::label('eDate','Expire Date')}}
+                                    {{Form::date('eDate', \Carbon\Carbon::now()->format('d/m/Y'), array('class' => 'form-control', 'required' => '')) }}
                                 </div>
                                  <div class="form-group">
                                        <div class="submit">
