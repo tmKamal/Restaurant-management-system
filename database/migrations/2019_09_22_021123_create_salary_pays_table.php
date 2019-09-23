@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMenusTable extends Migration
+class CreateSalaryPaysTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateMenusTable extends Migration
      */
     public function up()
     {
-        Schema::create('menus', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('category');
-            $table->string('name');
-            $table->double('price');
-            $table->text('image');
+        Schema::create('salary_pays', function (Blueprint $table) {
+
+            $table->bigIncrements('payId');
+            $table->integer('empId');
+            $table->double('totalSal');
+            $table->String('paidStatus');
+            $table->integer('month');
+            $table->integer('otHour');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreateMenusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menus');
+        Schema::dropIfExists('salary_pays');
     }
 }

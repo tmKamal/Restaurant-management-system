@@ -7,6 +7,7 @@
     <title>Employee Management</title>
 
     @include('includes.header')
+
 </head>
 <body>
 

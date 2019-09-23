@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Employee;
 use Illuminate\Http\Request;
 use App\Salary;
+use Illuminate\Support\Facades\DB;
+
 
 class EmployeeController extends Controller
 {
@@ -16,8 +18,12 @@ class EmployeeController extends Controller
     public function index()
     {
         $salaries = Salary:: orderby('id','asc')->get();
-        return view('restaurant.emp_dash')->with('employee', $salaries);
+        $users = DB::table('users')->where('type', '!=', 'User')->get(); //WHERE ADD CLAUSE
+        return view('restaurant.emp_dash')->with('salaries', $salaries)->with('users',$users);
+
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -64,8 +70,21 @@ class EmployeeController extends Controller
     public function show($id)
     {
         $salaries = Salary::find($id);
-        return view('restaurant.show-emp')->with('employee', $salaries);
+        $type = $salaries->empType;
+        $users_all = DB::table('users')->where('type', '=', $type)->join('salary_pays', 'users.id', '=', 'salary_pays.empId')->get();
+        $users = DB::table('users')->where('type', '=', $type)->get();
+        //get specific ->where('type', '=', 'chef')
+
+        return view('restaurant.show-emp')->with('salaries', $salaries)->with('users',$users)->with('usersall', $users_all);
+
     }
+
+//    public function showProfile($id)
+//    {
+//        $salaries = Salary::find($id);
+//        $users = DB::table('users')->get();
+//        return view('restaurant.emp-overview')->with('salaries', $salaries)->with('users',$users);
+//    }
 
     /**
      * Show the form for editing the specified resource.
@@ -76,7 +95,7 @@ class EmployeeController extends Controller
     public function edit($id)
     {
         $salaries = Salary::find($id);
-        return view('restaurant.edit-emp')->with('employee', $salaries);
+        return view('restaurant.edit-emp')->with('salaries', $salaries);
     }
 
     /**
@@ -85,9 +104,14 @@ class EmployeeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
+
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request,[
+            'empType' => 'required'
+        ]);
 
         $salaries = Salary::find($id);
         $salaries->empType = $request->input('empType');
