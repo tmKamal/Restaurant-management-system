@@ -12,7 +12,7 @@
 
     <main role="main" class="container">
         <div class="jumbotron">
-            <h1 class="text-primary">Payment successful</h1>
+            <h1 class="text-primary">Order Complete</h1>
             <p class="lead">Enjoy your meal!</p>
             <a class="btn btn-lg btn-primary" href="/" role="button">Continue shopping »</a>
         </div>

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {
@@ -32,6 +33,22 @@ class HomeController extends Controller
         return view('restaurant.index')->with('items',$items);
 
         return view('home');
+
+    }
+
+    public function searchx(Request $request)
+    {
+        $items = DB::table('menus')->where('name', 'like', '%' . $request->foodItemCheck . '%')->get();
+
+        return view('restaurant.searchMenuItem')->with('menus',$items);
+
+    }
+
+    public function searchxget($id)
+    {
+        $items = DB::table('menus')->where('name', 'like', '%' . $id . '%')->get();
+
+        return response()->json(["result"=>$items]);
 
     }
 }

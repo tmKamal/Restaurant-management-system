@@ -14,8 +14,6 @@ use App\Inventory;
 |
 */
 
-
-Route::get('/', 'HomeController@index');
 //Event routes----
 
 Route::post('/Event/submit','EventController@submit');
@@ -149,13 +147,26 @@ Route::get('/menu/{mId}/update', 'MenuController@update');
 Route::post('/menu/{mId}/menuUpdate','MenuController@menuUpdate'); 
 
 
+  
+Route::get('/cart', 'OrderController@viewCart');
 
- Route::get('/cart', 'OrderController@viewCart');
 Route::get('/addToCart/{id}', 'OrderController@addToCart');
+Route::get('/addToCartPost/{id}', 'OrderController@addToCartPost');
 Route::get('/buyNow/{id}', 'OrderController@buyNow');
-Route::get('/paysuccess', 'OrderController@codpay');
-
+Route::post('/paysuccess', 'OrderController@codpay');
+Route::post('/paysuccesspost', 'PaymentController@submit');
 Route::get('/removeCartItem/{id}', 'OrderController@removeCartItem');
 Route::get('/payment', 'PaymentController@payView');
+Route::get('/onlinepayment', 'PaymentController@payonline');
 Route::get('/increase/{id}', 'OrderController@increase');
 Route::get('/decrease/{id}', 'OrderController@decrease');
+Route::get('/myorders','OrderController@myOrders');
+Route::post('/menuItemSearch','HomeController@searchx');
+Route::get('/menuItemSearchget/{id}','HomeController@searchxget');
+Route::get('//paymentIncomeHistory','PaymentController@adminPayHistory');
+Route::get('/returnSuccess','PaymentController@returnUrl');
+Route::get('/cancel','PaymentController@cancelUrl');
+Route::get('/payhistoryby/{id}','PaymentController@payhistoryby');
+Route::post('/notify','PaymentController@notify');
+
+Route::get('/test','PaymentController@test');
