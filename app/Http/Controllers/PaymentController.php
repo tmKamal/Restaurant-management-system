@@ -79,11 +79,13 @@ class PaymentController extends Controller
                 'paystatus' => '0',
                 'paymentid' => $payId,
                 'paymenttype' => 'COD',
-                'ordertype' => 'Type',
+                'ordertype' => 'Delivery',
                 'address' => $data['address'],
                 'price' => $item->price,
                 'chefstatus' => "Que",
-                'orderstatus' => 'unpaid'
+                'lat'=>$data['latVal'],
+                'long'=>$data['langVal'],
+                'orderstatus' => 'in que'
 
             ];
             DB::table('orders')->insert($order);
@@ -95,7 +97,14 @@ class PaymentController extends Controller
         return view('restaurant.orderedItems')->with('success','order successfully completed');
     }
 
-
-
+    public function adminPayHistory(){
+       $orders = DB::table('orders')->get();
+        $items = DB::table('payment')->get();
+        return view('restaurant.paymentHistory')->with('payments',$items)->with('orders',$orders);
+    }
+    public function payhistoryby($id){
+       $items = DB::table('orders')->where('paymentId','=',$id)->get();
+       return view('restaurant.paidItems')->with('items',$items);
+    }
 
 }

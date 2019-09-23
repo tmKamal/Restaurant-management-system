@@ -11,6 +11,7 @@
         <th scope="col">Name</th>
         <th scope="col">Price</th>
         <th scope="col">Address</th>
+        <th scope="col">Location</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -21,6 +22,7 @@
                 <td>{{$item->itemname}}</td>
                 <td>{{$item->price}}</td>
                 <td>{{$item->address}}</td>
+                <td><button type="submit" class="btn btn-outline-primary"><a href="/delivery/{{$item->id}}/showMap">Show</a></button></td>  
                 <td><button type="submit" class="btn btn-outline-success"><a href="/delivery/{{$item->id}}/pick">Pick</a></button></td>  
             </tr>      
         @endforeach

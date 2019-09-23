@@ -5,7 +5,25 @@
     @include('includes.navbar')
 </div>
 <div class="jumbotron text-center" style="font-size: 8vh"> Cash On Delivery</div>
+<div class="row justify-content-center">
+    <!--Custom page content-->
 
+    <div class="main_content col-lg-9 col-md-12 col-sm-12 ">
+
+        <div class="mb-4">
+            <h2 >Mark your Delivery location</h2>
+        </div>
+
+
+        <div id="map"></div>
+        <div id="content">
+
+        </div>
+
+    </div>
+    <!--Main content end-->
+    <!--END-Custom page content-->
+</div>
 <div class="container">
     <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
@@ -45,6 +63,16 @@
             <h4 class="mb-3">Billing address</h4>
             <form class="needs-validation" novalidate="" action="/paysuccesspost" method="post">
                 {{ csrf_field() }}
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="latVal">Latitude</label>
+                        <input type="text" class="form-control" name="latVal" id="latVal" placeholder="" required="">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="langVal">Longitude</label>
+                        <input type="text" class="form-control" name="langVal" id="langVal" placeholder="" required="">
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="username">First Name</label>
@@ -185,6 +213,9 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdzFLvmBoH_1QzB7xelo7jO1ZoKgvUvog&callback=initMap"
+        async defer></script>
+<script src="js/gMapInsert.js"></script>
 <script src="js/main.js"></script>
 </body>
 
