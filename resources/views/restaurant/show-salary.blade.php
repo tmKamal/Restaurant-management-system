@@ -12,6 +12,7 @@
 <body>
 
 @section('content')
+    @include('includes.messages')
     <h2>Pay Salary</h2>
 
     <br>

@@ -3,6 +3,9 @@
 use App\Utility;
 use Illuminate\Support\Facades\Input;
 use App\Inventory;
+use App\User;
+use App\Salary;
+
 
 
 /*
@@ -86,6 +89,15 @@ Route::get('/sal-list', 'SalaryPayController@index');
 Route::get('/sal-add', 'SalaryPayController@show');
 Route::get('salarypay/{id}', 'SalaryPayController@show');
 Route::POST('/salarypay/submit', 'SalaryPayController@store');
+
+Route::any('/searchemp',function(){
+    $q = Input::get ( 'q' );
+    $users = User::where('name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->get();
+    if(count($users) > 0)
+        return view('restaurant.empSearch')->withDetails($users)->withQuery ( $q );
+    else
+        return view ('restaurant.empSearch')->withMessage('No Details found. Try to search again !');
+});
 
 
 //------------------------------------END EMP ROUTES------------------------------------------------------------------

@@ -46,8 +46,11 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
          $this->validate($request,[
-            'empType' => 'required'
+            'empType' => 'required',
+            'basicSal' => 'integer|min:0',
+            'otRate' => 'integer|min:0'
          ]);
+
 
          //create salaries
         $salaries = new Salary;
@@ -110,7 +113,9 @@ class EmployeeController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'empType' => 'required'
+            'empType' => 'required',
+            'basicSal' => 'integer|min:0',
+            'otRate' => 'integer|min:0'
         ]);
 
         $salaries = Salary::find($id);
