@@ -12,6 +12,7 @@
 <body>
 
 @section('content')
+    @include('includes.messages')
     <a class="btn btn btn-outline-secondary" href="/emp">Go Back</a>
     <hr>
     <h2>{{$salaries->empType}}</h2>

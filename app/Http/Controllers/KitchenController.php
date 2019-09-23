@@ -35,6 +35,14 @@ class KitchenController extends Controller
         return $this->index();
     }
 
+    function ready($oId){
+        $data=request()->all();
+        $order=Order::find($oId);
+        $order->orderstatus='ready';
+        $order->save();
+        return $this->index();
+    }
+
     /**
      * Show the form for creating a new resource.
      *

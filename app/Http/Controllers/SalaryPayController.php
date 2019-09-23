@@ -15,9 +15,20 @@ class SalaryPayController extends Controller
      */
     public function index()
     {
+
         $users_all = DB::table('users')->get();
         $users = DB::table('users')->join('salary_pays', 'users.id', '=', 'salary_pays.empId')->get();
         $salarypay = SalaryPay::all();
+//        $users_bonus = DB::table('users')->join('salary_pays', 'users.id', '=', 'salary_pays.empId')
+//            ->join('users', 'users.type', '=', 'salaries.empType')->get();  ->with('usersall', $users_bonus)
+
+        //calculate bonus
+        foreach ($users_all as $user){
+            $utype = $user->type;
+            $uid = $user->id;
+            $salaries = DB::table('salaries')->where('empType', '=', $utype);
+        }
+
 
         return view('restaurant.sal-list')->with('salarypay', $salarypay)->with('users',$users)->with('usersall',$users_all);
     }
@@ -37,10 +48,18 @@ class SalaryPayController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
-     *
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
+
+        $this->validate($request,[
+            'empId' => 'required',
+            'paidStatus' => 'required|string|max:4',
+            'month' => 'required|integer|min:1|max:12',
+            'otHour' => 'required|integer|min:0'
+        ]);
+
         $salarypay = new SalaryPay;
 
         $salarypay->empId = $request->input('empId');

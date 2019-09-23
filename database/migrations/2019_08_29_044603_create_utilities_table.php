@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSalaryPaysTable extends Migration
+class CreateUtilitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,14 @@ class CreateSalaryPaysTable extends Migration
      */
     public function up()
     {
-        Schema::create('salary_pays', function (Blueprint $table) {
+        Schema::create('utilities', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('status');
+            $table->string('expenseName');
+            $table->string('category');
+            $table->date('date')->nullable();
+            $table->double('amount');
+            $table->string('note');
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ class CreateSalaryPaysTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('salary_pays');
+        Schema::dropIfExists('utilities');
     }
 }

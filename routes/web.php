@@ -1,9 +1,19 @@
 <?php
 
+
 use App\Event;
 use Illuminate\Support\Facades\Input;
 use App\Inventory;
 use App\events;
+
+use App\Utility;
+
+
+use App\User;
+use App\Salary;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +38,8 @@ Route::get('/EditEvent/{id}/Edit','EventController@EditEventview');
 Route::post('/eventsUpdate','EventController@EditEvent');
 
 Route::get('/', 'MenuController@showIndex');
+
+Route::get('/createUtility','UtilityController@create');
 
 
 Route::post('/searchE',function (){
@@ -79,9 +91,36 @@ Route::get('/sal-form', function (){
    return view('restaurant.sal-list');
 });
 
+
+//Kitchen routes
+
+Route::get('/kitchen', 'KitchenController@index');
+Route::post('/kitchen/{oid}/assign','kitchenController@assign');
+
+//Utility routes
+Route::get('/utility', 'UtilityController@index');
+
+
+Route::POST('/createUtility/submit','UtilityController@submit');
+//Route::get('utility/{id}/edit','UtilityController@edit');
+Route::resource('utility', 'UtilityController');
+
+
+Route::any('/search',function(){
+    $q = Input::get ( 'q' );
+    $user = Utility::where('expenseName','LIKE','%'.$q.'%')->orWhere('category','LIKE','%'.$q.'%')->get();
+    if(count($user) > 0)
+        return view('/searchUtility')->withDetails($user)->withQuery ( $q );
+    else return view ('/restaurant.searchUtility')->withMessage('No Details found. Try to search again !');
+});
+
+
+//**************
+
 Route::get('/emp-overview/{id}', function (){
     return view('restaurant.emp-overview');
 });
+
 
 Route::get('/emp', 'EmployeeController@index');
 Route::get('/employee/{id}', 'EmployeeController@show');
@@ -95,12 +134,23 @@ Route::get('/sal-add', 'SalaryPayController@show');
 Route::get('salarypay/{id}', 'SalaryPayController@show');
 Route::POST('/salarypay/submit', 'SalaryPayController@store');
 
+Route::any('/searchemp',function(){
+    $q = Input::get ( 'q' );
+    $users = User::where('name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->get();
+    if(count($users) > 0)
+        return view('restaurant.empSearch')->withDetails($users)->withQuery ( $q );
+    else
+        return view ('restaurant.empSearch')->withMessage('No Details found. Try to search again !');
+});
+
 
 //------------------------------------END EMP ROUTES------------------------------------------------------------------
 
 
 Route::get('/kitchen', 'KitchenController@index');
 Route::post('/kitchen/{oid}/assign','kitchenController@assign');
+Route::get('/kitchen/{oid}/completed','kitchenController@ready');
+
 
 
 /* -----Routes CR------------- */

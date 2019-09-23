@@ -12,6 +12,7 @@
 <body>
 
 @section('content')
+    @include('includes.messages')
     <a href="/emp" class="btn btn-outline-secondary">Go back</a>
     <hr>
 <h2>Create New Employee Pay Details</h2>

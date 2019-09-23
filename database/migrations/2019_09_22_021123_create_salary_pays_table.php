@@ -17,7 +17,6 @@ class CreateSalaryPaysTable extends Migration
 
             $table->bigIncrements('payId');
             $table->integer('empId');
-            $table->double('totalSal');
             $table->String('paidStatus');
             $table->integer('month');
             $table->integer('otHour');

@@ -12,7 +12,7 @@
 <body>
 
 @section('content')
-
+    @include('includes.messages')
     <div class=" container">
         <div class="lead">
             <h2>Setup/Update Employee Details</h2>
