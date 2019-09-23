@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use Gate;
 use App\User;
 use App\Order;
+use App\Exports\UsersExport;
+use App\Exports\OrderExport;
+use Maatwebsite\Excel\Facades\Excel;
+use JavaScript;
 
 class adminController extends Controller
 {
@@ -38,8 +42,8 @@ class adminController extends Controller
     function showDelivery(){
 
         $oders = DB::table('orders')->where([
-            ['type', '=', 'delivery'],
-            ['status', '=', 'ready'],
+            ['ordertype', '=', 'delivery'],
+            ['orderstatus', '=', 'ready'],
         ])->get();
 
         return view('restaurant.delivery')->with('deliverys',$oders);
@@ -49,7 +53,7 @@ class adminController extends Controller
     function pick($dId){
         $deli=Order::find($dId);
         //dd($deli);
-        $deli->status='picked';
+        $deli->orderstatus='picked';
         $deli->save();
         return $this->showDelivery();
     }
@@ -57,8 +61,8 @@ class adminController extends Controller
     function showPendingDelivery(){
 
         $oders = DB::table('orders')->where([
-            ['type', '=', 'delivery'],
-            ['status', '=', 'picked'],
+            ['ordertype', '=', 'delivery'],
+            ['orderstatus', '=', 'picked'],
         ])->get();
 
         return view('restaurant.deliveryPending')->with('deliverys',$oders);
@@ -70,15 +74,15 @@ class adminController extends Controller
     function delivered($dId){
         $deli=Order::find($dId);
         //dd($deli);
-        $deli->status='delivered';
+        $deli->orderstatus='delivered';
         $deli->save();
         return $this->showPendingDelivery();
     }
     function showCompletedDelivery(){
 
         $oders = DB::table('orders')->where([
-            ['type', '=', 'delivery'],
-            ['status', '=', 'delivered'],
+            ['ordertype', '=', 'delivery'],
+            ['orderstatus', '=', 'delivered'],
         ])->get();
 
         return view('restaurant.deliveryFinished')->with('deliverys',$oders);
@@ -94,4 +98,20 @@ class adminController extends Controller
         return $this->showCompletedDelivery();
         
     }
+
+    function showMap($did){
+        $mapLoc=Order::find($did);
+        $lat=$mapLoc->lat;
+        $long=$mapLoc->long;
+        JavaScript::put([
+            'lat' => $lat,
+            
+            'lng' => $long
+        ]);
+        return view('restaurant.gMap');
+    }
+
+    public function exportDelivery(){
+        return Excel::download(new OrderExport,'deleiveries.xlsx');
+    } 
 }

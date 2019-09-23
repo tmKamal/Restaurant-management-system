@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{--  jquery --}}
+    
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js">
+    </script>
     <!-- Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Bootstrap -->
@@ -345,13 +349,13 @@
     </div>
     <!--End NEW Structure-->
 
-
+    {{-- @include ('layouts/footer')  --}}
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    {{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
+    </script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
     </script>
@@ -360,8 +364,8 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdzFLvmBoH_1QzB7xelo7jO1ZoKgvUvog&callback=initMap"
     async defer></script>
-    <script src="js/gMap.js"></script>
-    <script src="js/admin.js"></script>
+    <script src="/js/gMap.js"></script>
+    <script src="/js/admin.js"></script>
 </body>
 
 </html>
