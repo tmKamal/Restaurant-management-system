@@ -122,6 +122,9 @@ Route::get('/menu', 'MenuController@index');
 Route::post('/menuSubmit', 'MenuController@submit');
 Route::get('/menuDetails', 'MenuController@details');
 Route::get('/menu/{mId}/delete', 'MenuController@delete');
+Route::get('/menu/{mId}/update', 'MenuController@update');
+Route::post('/menu/{mId}/menuUpdate','MenuController@menuUpdate'); 
+
 
 
  Route::get('/cart', 'OrderController@viewCart');
