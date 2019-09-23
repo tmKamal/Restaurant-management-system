@@ -4,13 +4,6 @@ var myLatLng;
 var marker;
 var popup, Popup;/* only used when user doesnt allow geoLocation in the browser  */
 
-//console.log("latitude"+windowCr.lat);
-//console.log("longitude"+windowCr.lng);
-var customerLat=windowCr.lat;
-var customerLang=windowCr.lng;
-
-//console.log(customerLat);
-
 /* Custom Markers */
 var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
 var icons = {
@@ -19,9 +12,6 @@ var icons = {
   },
   restaurant: {
     icon: iconBase + 'snack_bar.png'
-  },
-  user: {
-    icon: iconBase + 'man.png'
   },
   info: {
     icon: iconBase + 'info-i_maps.png'
@@ -55,12 +45,6 @@ function createMap(myLatLng) {
         icon: icons['restaurant'].icon,
         map: map
     });
-    /* Customer location Dynamic */
-    marker=new google.maps.Marker({
-        position:new google.maps.LatLng(customerLat,customerLang),
-        icon: icons['user'].icon,
-        map:map
-    })
 }
 
 
@@ -74,8 +58,6 @@ function geoLocation() {
             }; */
             var latVal = p.coords.latitude;
             var lngVal = p.coords.longitude;
-            customerLat=windowCr.lat;
-            customerLang=windowCr.lng;
             myLatLng = new google.maps.LatLng(latVal, lngVal);
 
 
