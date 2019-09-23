@@ -1,7 +1,16 @@
 @extends('layouts.admin')
 @section('content')
 <div class="mb-4">
-    <h2 >Completed Deliveries</h2>  
+    <div class="row">
+      <div class="col-md-6">
+          <h2>Completed Deliveries</h2>  
+          <button type="submit" class="btn btn-success"><a href="/exportDeliveryExcel">Export Excel</a></button>
+      </div>
+      <div class="col-md-6">
+          
+      </div>
+    </div>
+    
 </div>
 
 <table class="table table-striped">

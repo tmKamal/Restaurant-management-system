@@ -64,16 +64,28 @@ Route::post('/emp/{type}/update','adminController@updateEmp');
 //delivery
 
 Route::get('/delivery','adminController@showDelivery');
+
 Route::get('/deliveryPending','adminController@showPendingDelivery');
 Route::get('/deliveryCompleted','adminController@showCompletedDelivery');
 Route::get('/delivery/{dId}/pick','adminController@pick');
 Route::get('/delivery/{dId}/delivered','adminController@delivered');
 Route::get('/delivery/{dId}/remove','adminController@remove');
+Route::get('/delivery/{did}/showMap','adminController@showMap');
+
+
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin','adminController@index');
     Route::get('/employeeManagement','adminController@showEmployeeMgt');
+    Route::get('/deliveryMap','adminController@showDeliveryMap');
 });
+//Report Generating Routes
+Route::get('/exportDeliveryExcel', 'adminController@exportDelivery');
+//Live Search 
+Route::get('/live_search', 'LiveSearch@index');
+Route::get('/live_search/action', 'LiveSearch@action')->name('live_search.action');
+
+/* -----END - Routes CR------------- */
 
 
 /* -----Routes for INVENTORY------------- */
@@ -120,6 +132,9 @@ Route::get('/menu', 'MenuController@index');
 Route::post('/menuSubmit', 'MenuController@submit');
 Route::get('/menuDetails', 'MenuController@details');
 Route::get('/menu/{mId}/delete', 'MenuController@delete');
+Route::get('/menu/{mId}/update', 'MenuController@update');
+Route::post('/menu/{mId}/menuUpdate','MenuController@menuUpdate'); 
+
 
   
 Route::get('/cart', 'OrderController@viewCart');

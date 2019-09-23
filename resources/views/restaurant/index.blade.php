@@ -23,7 +23,7 @@
         <div class="col-md-3 col-sm-4">
         
         <div class="card food-item" >
-                <img src="https://assets3.thrillist.com/v1/image/2797371/size/tmg-article_default_mobile.jpg" class="card-img-top" alt="...">
+        <img src="\image\menus\{{ $menu->image }}" alt="Pic" height="200" width="200" class="user-profile-image">
                 <div class="card-body">
                     <h5 class="card-title">{{$menu->name}}</h5>
                     <p class="card-text">{{$menu->category}}</p>

@@ -18,14 +18,18 @@ class CreateOrdersTable extends Migration
             $table->string('itemid');
             $table->string('itemname');
             $table->string('userid');
+            $table->string('paymentid');
+            $table->string('paymenttype');
             $table->string('address');
             $table->integer('qty');
             $table->double('price');
-            $table->string('type');
+            $table->string('ordertype');
             $table->string('chefid')->nullable();
             $table->string('paystatus');
             $table->string('chefstatus');
-            $table->string('status');
+            $table->string('orderstatus');
+            $table->decimal('long', 10, 7);/* latitude */
+            $table->decimal('lat', 10, 7);/* longitude */
             $table->timestamps();
         });
     }
