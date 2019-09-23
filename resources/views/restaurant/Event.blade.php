@@ -15,6 +15,19 @@
     <title>Event Booking</title>
 </head>
 <body>
+<div class="col-md-2  ">
+
+    <form action="{{URL::to('/searchE')}}"method="POST" role="search">
+        {{csrf_field()}}
+        <div class="input-group">
+            <input type="text" class="form-control" name="q" placeholder="Search Events"><span class="input-group-btn">
+                      <button type="submit" class="btn btn-default">
+                          <span class="glyphicon glyphicon-search"></span>
+                         </button>
+                     </span>
+        </div>
+    </form>
+</div>
 {!! Form::open(['url' => 'Event/submit']) !!}
 <div class="container">
     <div class="row">
@@ -42,7 +55,7 @@
                             </div>
                             <div class="form-group">
                                 {{Form::label('email','E-Mail Address')}}
-                                {{Form::text('email','',['class' => 'form-control','placeholder' => 'Enter E-mail'])}}
+                                {{Form::email('email','',['class' => 'form-control','placeholder' => 'Enter E-mail'])}}
                                 <div class="a1">
                                     {{ $errors->first('email') }}
                                 </div>

@@ -1,10 +1,17 @@
 <?php
 
-use App\Utility;
+
+use App\Event;
 use Illuminate\Support\Facades\Input;
 use App\Inventory;
+use App\events;
+
+use App\Utility;
+
+
 use App\User;
 use App\Salary;
+
 
 
 
@@ -33,6 +40,43 @@ Route::post('/eventsUpdate','EventController@EditEvent');
 Route::get('/', 'MenuController@showIndex');
 
 Route::get('/createUtility','UtilityController@create');
+
+
+Route::post('/searchE',function (){
+   $q = Input::get('q');
+   if($q != ""){
+       $event = Event::where('name', 'LIKE' , '%' . $q . '%')
+           ->orWhere('email', 'LIKE' , '%' . $q . '%')
+           ->orWhere('location', 'LIKE' , '%' . $q . '%')
+           ->orWhere('type', 'LIKE' , '%' . $q . '%')
+           ->orWhere('massage', 'LIKE' , '%' . $q . '%')
+           ->orWhere('phone', 'LIKE' , '%' . $q . '%')
+           ->orWhere('date', 'LIKE' , '%' . $q . '%')
+           ->get();
+       if(count($event)>0)
+           return view('/restaurant.eventSearch')->withDetails($event)->withQuery($q);
+   }
+    return view('/restaurant.eventSearch')->withMessage("No Events found!!!!!!!!!!!.......");
+});
+
+
+
+Route::get('/Rating', function () {
+    return view('restaurant.Rating');
+});
+
+Route::get('/thank', function () {
+    return view('restaurant.thank');
+});
+
+Route::get('/uThank', function () {
+    return view('restaurant.uThank');
+});
+
+Route::get('/eventManagement', function () {
+    return view('restaurant.eventManagement');
+});
+
 
 
 
@@ -212,6 +256,7 @@ Route::get('/payment', 'PaymentController@payView');
 Route::get('/onlinepayment', 'PaymentController@payonline');
 Route::get('/increase/{id}', 'OrderController@increase');
 Route::get('/decrease/{id}', 'OrderController@decrease');
+
 Route::get('/myorders','OrderController@myOrders');
 Route::post('/menuItemSearch','HomeController@searchx');
 Route::get('/menuItemSearchget/{id}','HomeController@searchxget');
@@ -222,3 +267,4 @@ Route::get('/payhistoryby/{id}','PaymentController@payhistoryby');
 Route::post('/notify','PaymentController@notify');
 
 Route::get('/test','PaymentController@test');
+

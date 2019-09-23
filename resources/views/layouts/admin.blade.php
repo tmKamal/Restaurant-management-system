@@ -97,6 +97,30 @@
                     {{-- @endcan --}}
                     @endif
                     @can('isManager')
+
+                        @can('isManager')
+                            <li class="navigation_item">
+                                <div class="row">
+                                    <div class="col-2 icon-containerSidebar">
+                                        <i class="material-icons crsidebarIcon">trending_up</i>
+                                    </div>
+                                    <div class="col-10 sidebarText">
+                                        <a href="eventManagement">Event</a>
+                                    </div>
+                                </div>
+                            </li>
+                        @endcan
+                        @can('isManager')
+
+
+
+
+
+
+
+
+
+
                     <li class="navigation_item">
                         <div class="row">
                             <div class="col-2 icon-containerSidebar">

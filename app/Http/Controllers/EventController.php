@@ -39,7 +39,7 @@ class EventController extends Controller
 
         $Event -> save();
 
-        return redirect('/');
+        return redirect('/thank');
     }
     public function DeleteEvent($id){
         $Events = Event::find($id);
@@ -76,7 +76,7 @@ class EventController extends Controller
         $Events -> save();
 
         $Events=Event::all();
-        return view('restaurant.Event')->with('data',$Events);
+        return view('restaurant.uThank')->with('data',$Events);
 
 
 
