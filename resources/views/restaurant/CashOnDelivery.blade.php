@@ -4,7 +4,7 @@
 <div class="container-fluid pl-0 pr-0">
     @include('includes.navbar')
 </div>
-<div class="jumbotron text-center" style="font-size: 8vh"> Payments</div>
+<div class="jumbotron text-center" style="font-size: 8vh"> Cash On Delivery</div>
 
 <div class="container">
     <div class="row">
@@ -16,11 +16,11 @@
             <ul class="list-group mb-3">
                 @if(!count($items))
                     <script>
-                            window.setTimeout(function () {
-                                window.history.back();
-                            }, 1000);
+                        window.setTimeout(function () {
+                            window.history.back();
+                        }, 1000);
                     </script>
-                @endif  
+                @endif
                 @php($total=0)
                 @foreach($items as $item)
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
@@ -30,7 +30,7 @@
                         </div>
                         <span class="text-muted">LKR @php($price = $item->price * $item->qty){{$price}}</span>
                     </li>
-                        @php($total += $price)
+                    @php($total += $price)
                 @endforeach
 
                 <li class="list-group-item d-flex justify-content-between text-primary">
@@ -43,13 +43,8 @@
         </div>
         <div class="col-md-8 order-md-1">
             <h4 class="mb-3">Billing address</h4>
-            <form class="needs-validation" novalidate="" action="https://sandbox.payhere.lk/pay/checkout" method="post">
-                {{csrf_field()}}
-                <input type="hidden" name="merchant_id" value="1212949">    <!-- Replace your Merchant ID -->
-                <input type="hidden" name="return_url" value="https://dasunekanayake.com/returnSuccess">
-                <input type="hidden" name="cancel_url" value="https://dasunekanayake.com/cancel">
-                <input type="hidden" name="notify_url" value="https://dasunekanayake.com/notify">
-
+            <form class="needs-validation" novalidate="" action="/paysuccesspost" method="post">
+                {{ csrf_field() }}
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="username">First Name</label>
@@ -98,22 +93,11 @@
 
                 <div class="mb-3">
                     <label for="zip">Telephone</label>
-                    <input type="number" class="form-control" id="phone" name="phone" placeholder="phone" required="">
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="phone" required="">
                     <div class="invalid-feedback">
                         Please select a valid Telephone.
                     </div>
                 </div>
-
-
-                <hr class="mb-4">
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="same-address">
-                    <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
-                </div>
-
-                <hr class="mb-4">
-
-
 
 
                 {{--<div class="row" id="pay-details">
@@ -151,35 +135,27 @@
                 </div>--}}
                 <hr class="mb-4">
 
-                <div class="mb-3 d-none">
-                    <input type="hidden" name="currency" value="LKR">
-                    <input type="hidden" name="order_id" value="7788">
-                    <input type="hidden" name="country" value="Sri Lanka"><br><br>
-                    <input type="hidden" name="items" value="Deliverables"><br>
-                @php($count=1)
-                @foreach($items as $item)
 
-                        <input type="hidden" name="item_number_{{$count}}" value="{{$item->id}}"><br>
-                        <input type="hidden" name="item_name_{{$count}}" value="{{$item->itemname}}"><br>
-                        <input type="hidden" name="amount_{{$count}}" value="@php($price = $item->price * $item->qty){{$price}}"><br>
-                        <input type="hidden" name="quantity_{{$count}}" value="{{$item->qty}}"><br>
-                        @php($count+=1)
-                @endforeach
 
-                <input type="hidden" name="amount" value="{{$total}}">
-
-                </div>
-                <button class="btn btn-primary btn-lg btn-block " id="card-pay" type="submit">Continue to checkout</button>
-
+                <button class="btn btn-primary btn-lg btn-block" id="cod-pay1" type="submit">Finish order</button>
 
             </form>
             <button class="btn btn-light btn-lg btn-block" id="demo" onclick="demodetails()">Demo</button>
-
-
         </div>
     </div>
 </div>
 <script>
+
+    function demodetails() {
+        document.getElementById('firstname').value = "john";
+        document.getElementById('lastname').value = "Doe";
+        document.getElementById('email').value = "johndoe@gmail.com";
+        document.getElementById('address').value = "Wehera,Kurunegala";
+        document.getElementById('city').value = "Kurunegala";
+        document.getElementById('phone').value = "0715969444";
+
+
+    }
     // Example starter JavaScript for disabling form submissions if there are invalid fields
     (function() {
         'use strict';
@@ -200,14 +176,8 @@
             });
         }, false);
     })();
-    function demodetails() {
-        document.getElementById('firstname').value = "john";
-        document.getElementById('lastname').value = "Doe";
-        document.getElementById('email').value = "johndoe@gmail.com";
-        document.getElementById('address').value = "Wehera,Kurunegala";
-        document.getElementById('city').value = "Kurunegala";
-        document.getElementById('phone').value = "0715969444";
-    }
+
+
 </script>
 
 

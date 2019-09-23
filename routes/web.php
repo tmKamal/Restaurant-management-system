@@ -11,8 +11,6 @@
 |
 */
 
-
-Route::get('/', 'HomeController@index');
 //Event routes----
 
 Route::post('/Event/submit','EventController@submit');
@@ -91,12 +89,23 @@ Route::get('/menuDetails', 'MenuController@details');
 Route::get('/menu/{mId}/delete', 'MenuController@delete');
 
   
- Route::get('/cart', 'OrderController@viewCart');
+Route::get('/cart', 'OrderController@viewCart');
 Route::get('/addToCart/{id}', 'OrderController@addToCart');
+Route::get('/addToCartPost/{id}', 'OrderController@addToCartPost');
 Route::get('/buyNow/{id}', 'OrderController@buyNow');
-Route::get('/paysuccess', 'OrderController@codpay');
-
+Route::post('/paysuccess', 'OrderController@codpay');
+Route::post('/paysuccesspost', 'PaymentController@submit');
 Route::get('/removeCartItem/{id}', 'OrderController@removeCartItem');
 Route::get('/payment', 'PaymentController@payView');
+Route::get('/onlinepayment', 'PaymentController@payonline');
 Route::get('/increase/{id}', 'OrderController@increase');
 Route::get('/decrease/{id}', 'OrderController@decrease');
+Route::get('/myorders','OrderController@myOrders');
+
+
+Route::get('/returnSuccess','PaymentController@returnUrl');
+Route::get('/cancel','PaymentController@cancelUrl');
+
+Route::post('/notify','PaymentController@notify');
+
+Route::get('/test','PaymentController@test');
