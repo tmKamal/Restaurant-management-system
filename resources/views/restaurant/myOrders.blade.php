@@ -23,6 +23,8 @@
             <th scope="col">Item Name</th>
             <th scope="col">Quantity</th>
             <th scope="col">Price</th>
+            <th scope="col">Pay Status</th>
+
         </tr>
         </thead>
         <tbody>
@@ -32,7 +34,14 @@
                 <th scope="row">{{$c}}</th>
                 <td>{{$item->itemname}}</td>
                 <td>{{$item->qty}}</td>
-                <td>{{$item->price}}</td>
+                <td>{{$item->qty * $item->price}}</td>
+                <th scope="col"><?php
+                    if($item->paystatus==1)
+                        echo "Paid";
+                    else
+                        echo "Pending payment"
+                    ?></th>
+
             </tr>
             @php($c+=1)
         @endforeach
