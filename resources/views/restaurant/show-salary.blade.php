@@ -7,7 +7,7 @@
     <title>Employee Management</title>
 
     @include('includes.header')
-    @include('includes.navbar')
+
 </head>
 <body>
 
