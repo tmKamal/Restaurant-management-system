@@ -102,13 +102,6 @@
                     @endcan
                     @can('isManager')
 
-
-
-
-
-
-
-
                         @can('isManager')
                             <li class="navigation_item">
                                 <div class="row">

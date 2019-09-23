@@ -63,6 +63,10 @@ Route::get('/uThank', function () {
     return view('restaurant.uThank');
 });
 
+Route::get('/eventManagement', function () {
+    return view('restaurant.eventManagement');
+});
+
 
 
 
