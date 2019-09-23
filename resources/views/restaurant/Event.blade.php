@@ -55,7 +55,7 @@
                             </div>
                             <div class="form-group">
                                 {{Form::label('email','E-Mail Address')}}
-                                {{Form::text('email','',['class' => 'form-control','placeholder' => 'Enter E-mail'])}}
+                                {{Form::email('email','',['class' => 'form-control','placeholder' => 'Enter E-mail'])}}
                                 <div class="a1">
                                     {{ $errors->first('email') }}
                                 </div>
