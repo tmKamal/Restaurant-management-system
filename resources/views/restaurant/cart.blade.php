@@ -13,6 +13,9 @@
 
 
 
+@php($total=0)
+
+
 @if(count($items))
 <div class="container">
     <div class="card shopping-cart">
@@ -23,7 +26,8 @@
             <div class="clearfix"></div>
         </div>
         <div class="card-body">
-                @php($total=0)
+
+
 
             @foreach($items as $item)
                 <!-- PRODUCT -->
@@ -44,10 +48,10 @@
                     @php($price = $item->price * $item->qty)
                     <div class="col-4 col-sm-4 col-md-4">
                         <div class="quantity">
-                            <input type="button" value="+" class="plus">
+                            <input type="button" value="+" class="plus" onclick="window.location.href='/increase/{{$item->itemid}}';">
                             <input type="number" step="1" max="99" min="1" value="{{$item->qty}}" title="Qty" class="qty"
                                    size="4">
-                            <input type="button" value="-" class="minus">
+                            <input type="button" value="-" class="minus" onclick="window.location.href='/decrease/{{$item->itemid}}';">
                         </div>
                     </div>
                     <a class="col-2 col-sm-2 col-md-2 text-right pt-1" href="/removeCartItem/{{$item->itemid}}">
@@ -115,7 +119,9 @@
             <div class="pull-right" style="margin: 10px">
                 <a href="/payment" class="btn btn-success pull-right">Checkout</a>
                 <div class="pull-right" style="margin: 5px">
-                Total price: <b>{{$price}}</b>
+
+                Total price: <b>{{$total}}</b>
+
                 </div>
             </div>
         </div>
@@ -131,6 +137,8 @@
     </main>
 
 @endif
+
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

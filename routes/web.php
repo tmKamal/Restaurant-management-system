@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Input;
+use App\Inventory;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -87,7 +90,7 @@ Route::get('/live_search/action', 'LiveSearch@action')->name('live_search.action
 /* -----END - Routes CR------------- */
 
 
-//Route for INVENTORY
+/* -----Routes for INVENTORY------------- */
 
 Route::get('/inventory', function () {
     return view('inventory');
@@ -96,9 +99,11 @@ Route::get('/inventory', function () {
 Route::get('/addItem', function () {
     return view('/restaurant.addItem');
 });
+
 Route::get('/show', function () {
     return view('/restaurant.show');
 });
+
 Route::get('/edit', function () {
     return view('/restaurant.edit');
 });
@@ -108,13 +113,32 @@ Route::get('/inventory','InventoryController@index');
 Route::get('/show/{id}', 'InventoryController@show');
 Route::resource('inventory', 'InventoryController');
 
+//Inventory Search
+Route::post( '/search', function () {
+    $q = Input::get ( 'q' );
+    if($q != ""){
+      $item = Inventory::where('Product_Name', 'LIKE' , '%' . $q . '%')
+                            ->orWhere('Brand_Name', 'LIKE' , '%' . $q . '%')
+                            ->orWhere('Category', 'LIKE' , '%' . $q . '%')
+                            ->get();
+      if(count($item)>0)
+            return view('/restaurant.invSearch')->withDetails($item)->withQuery($q);
+    }
+    return view('/restaurant.invSearch')->withMessage("No Products found");
+} );
+
+
+
 /* Routes for Menu */
 Route::get('/menu', 'MenuController@index');
 Route::post('/menuSubmit', 'MenuController@submit');
 Route::get('/menuDetails', 'MenuController@details');
 Route::get('/menu/{mId}/delete', 'MenuController@delete');
+Route::get('/menu/{mId}/update', 'MenuController@update');
+Route::post('/menu/{mId}/menuUpdate','MenuController@menuUpdate'); 
 
-  
+
+
  Route::get('/cart', 'OrderController@viewCart');
 Route::get('/addToCart/{id}', 'OrderController@addToCart');
 Route::get('/buyNow/{id}', 'OrderController@buyNow');
@@ -122,3 +146,5 @@ Route::get('/paysuccess', 'OrderController@codpay');
 
 Route::get('/removeCartItem/{id}', 'OrderController@removeCartItem');
 Route::get('/payment', 'PaymentController@payView');
+Route::get('/increase/{id}', 'OrderController@increase');
+Route::get('/decrease/{id}', 'OrderController@decrease');
