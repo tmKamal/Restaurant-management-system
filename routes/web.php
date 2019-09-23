@@ -55,6 +55,15 @@ Route::get('/Rating', function () {
     return view('restaurant.Rating');
 });
 
+Route::get('/thank', function () {
+    return view('restaurant.thank');
+});
+
+Route::get('/uThank', function () {
+    return view('restaurant.uThank');
+});
+
+
 
 
 //Employee routes----
