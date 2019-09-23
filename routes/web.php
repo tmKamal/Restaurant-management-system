@@ -1,5 +1,6 @@
 <?php
-
+use App\Utility;
+use Illuminate\Support\Facades\Input;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +27,8 @@ Route::post('/eventsUpdate','EventController@EditEvent');
 
 Route::get('/', 'MenuController@showIndex');
 
+Route::get('/createUtility','UtilityController@create');
+
 
 
 //Employee routes----
@@ -45,6 +48,21 @@ Route::post('/kitchen/{oid}/assign','kitchenController@assign');
 
 //Utility routes
 Route::get('/utility', 'UtilityController@index');
+
+
+Route::POST('/createUtility/submit','UtilityController@submit');
+//Route::get('utility/{id}/edit','UtilityController@edit');
+Route::resource('utility', 'UtilityController');
+
+
+Route::any('/search',function(){
+    $q = Input::get ( 'q' );
+    $user = Utility::where('expenseName','LIKE','%'.$q.'%')->orWhere('category','LIKE','%'.$q.'%')->get();
+    if(count($user) > 0)
+        return view('/searchUtility')->withDetails($user)->withQuery ( $q );
+    else return view ('/restaurant.searchUtility')->withMessage('No Details found. Try to search again !');
+});
+
 
 //**************
 Route::get('/emp', 'EmployeeController@index');

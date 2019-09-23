@@ -3,17 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Utility;
 
-class UtilityController extends Controller
-{
+
+class UtilityController extends Controller{
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('restaurant.utility');
+    public function index(){
+
+        $utilities = Utility::all();
+        //var_dump($utilities);
+        return view('restaurant.utility')->with ('utilities',$utilities);
     }
 
     /**
@@ -23,7 +26,42 @@ class UtilityController extends Controller
      */
     public function create()
     {
-        //
+        return view('restaurant.createUtility');        
+    }
+
+    //Newly added Function for submit data
+    public function submit(Request $request)
+    {
+        $this->validate($request,[
+            'expenseName' => 'required',
+            'type'=>'required',
+            'date'=>'required',
+            'amount'=>'required',
+            
+
+        ]);
+
+        //create new Utility bill record
+
+        $utility = new Utility;
+        $utility->expenseName = $request->input('expenseName');
+        $utility->category = $request->input('type');
+        $utility->date = $request->input('date');
+        $utility->amount = $request->input('amount');
+        $utility->note = $request->input('expenseName');
+        $utility->expenseName = $request->input('expenseName');
+        
+        //save utility
+        $utility->save();
+        
+        //redirect
+        return redirect('/utility')->with('success','Message sent');
+
+
+
+
+
+        //return $request->input('expenseName');
     }
 
     /**
@@ -56,20 +94,11 @@ class UtilityController extends Controller
      */
     public function edit($id)
     {
-        //
+        $utility = Utility::find($id);
+        return view('restaurant.editUtility')->with('utility',$utility);
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
@@ -79,6 +108,34 @@ class UtilityController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $utility = Utility::find($id);
+        $utility->delete();
+        return redirect('/utility')->with('success','Record deleted');
     }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function update(Request $request, $id)
+    {
+        $utility = Utility::find($id);  
+
+        $utility->expenseName = $request->input('expenseName');
+        $utility->category = $request->input('type');
+        $utility->date = $request->input('date');
+        $utility->amount = $request->input('amount');
+        $utility->note = $request->input('expenseName');
+        $utility->expenseName = $request->input('expenseName');
+        
+        //save utility
+        $utility->save();
+
+        return redirect('/utility')->with('success','Record updated');
+
+      }
 }

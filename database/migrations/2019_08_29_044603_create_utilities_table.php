@@ -15,6 +15,12 @@ class CreateUtilitiesTable extends Migration
     {
         Schema::create('utilities', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('status');
+            $table->string('expenseName');
+            $table->string('category');
+            $table->date('date')->nullable();
+            $table->double('amount');
+            $table->string('note');
             $table->timestamps();
         });
     }
