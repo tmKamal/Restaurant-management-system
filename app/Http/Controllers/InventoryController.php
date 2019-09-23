@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Inventory;
+use App\Exports\InventoryExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class InventoryController extends Controller
 {
@@ -141,5 +143,10 @@ class InventoryController extends Controller
         $inventory->delete();
 
         return redirect('inventory')->with('success', 'Item Deleted');
+    }
+
+    public function export() 
+    {
+        return Excel::download(new InventoryExport, 'Inventories.xlsx');
     }
 }

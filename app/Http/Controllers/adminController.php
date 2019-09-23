@@ -21,9 +21,12 @@ class adminController extends Controller
     function showEmployeeMgt(){
         $emp=User::all();
 
+        /* ===============This will stop other user's access to this file ==========
+        ==================Only manager can Access ==================================
         if(!Gate::allows('isManager')){
             abort(403,"Sorry, You Do not have permission.");
-        }
+        } 
+        ===========================================================================*/
 
         return view('restaurant.admin_panel.employeeManagement')->with('emp',$emp);
     }

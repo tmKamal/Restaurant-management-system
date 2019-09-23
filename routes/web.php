@@ -114,6 +114,7 @@ Route::get('/show/{id}', 'InventoryController@show');
 Route::resource('inventory', 'InventoryController');
 Route::get('/lowstock','InventoryController@lowstock');
 Route::get('/expired','InventoryController@expired');
+Route::get('/exportInventoryExcel', 'InventoryController@export');//ReportGenerates
 
 //Inventory Search
 Route::post( '/search', function () {
@@ -145,6 +146,7 @@ Route::post('/menu/{mId}/menuUpdate','MenuController@menuUpdate');
 Route::get('/addToCart/{id}', 'OrderController@addToCart');
 Route::get('/buyNow/{id}', 'OrderController@buyNow');
 Route::get('/paysuccess', 'OrderController@codpay');
+Route::get('/paymentexport', 'PaymentController@exportPayments');//reports
 
 Route::get('/removeCartItem/{id}', 'OrderController@removeCartItem');
 Route::get('/payment', 'PaymentController@payView');

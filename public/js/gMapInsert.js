@@ -41,7 +41,7 @@ function createMap(myLatLng) {
 
     /* Restaurant location Static */
     marker = new google.maps.Marker({
-        position: new google.maps.LatLng(7.547601,  80.312415),
+        position: new google.maps.LatLng(6.922020880726874,  79.96466670349128),
         icon: icons['restaurant'].icon,
         map: map
     });

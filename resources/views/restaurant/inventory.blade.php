@@ -30,6 +30,7 @@
 @endforeach
 
 <h1>Inventory</h1>
+<button type="submit" class="btn btn-primary"><a href="/exportInventoryExcel">Export Report</a></button>
 <br>
 <div class="page-content-body-wrapper">
     <!--=======================================
