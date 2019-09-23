@@ -1,7 +1,9 @@
 <?php
 
+use App\Utility;
 use Illuminate\Support\Facades\Input;
 use App\Inventory;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +29,8 @@ Route::post('/eventsUpdate','EventController@EditEvent');
 
 Route::get('/', 'MenuController@showIndex');
 
+Route::get('/createUtility','UtilityController@create');
+
 
 
 //--------------------------------------------Employee routes---------------------------------------------------------
@@ -40,9 +44,36 @@ Route::get('/sal-form', function (){
    return view('restaurant.sal-list');
 });
 
+
+//Kitchen routes
+
+Route::get('/kitchen', 'KitchenController@index');
+Route::post('/kitchen/{oid}/assign','kitchenController@assign');
+
+//Utility routes
+Route::get('/utility', 'UtilityController@index');
+
+
+Route::POST('/createUtility/submit','UtilityController@submit');
+//Route::get('utility/{id}/edit','UtilityController@edit');
+Route::resource('utility', 'UtilityController');
+
+
+Route::any('/search',function(){
+    $q = Input::get ( 'q' );
+    $user = Utility::where('expenseName','LIKE','%'.$q.'%')->orWhere('category','LIKE','%'.$q.'%')->get();
+    if(count($user) > 0)
+        return view('/searchUtility')->withDetails($user)->withQuery ( $q );
+    else return view ('/restaurant.searchUtility')->withMessage('No Details found. Try to search again !');
+});
+
+
+//**************
+
 Route::get('/emp-overview/{id}', function (){
     return view('restaurant.emp-overview');
 });
+
 
 Route::get('/emp', 'EmployeeController@index');
 Route::get('/employee/{id}', 'EmployeeController@show');
