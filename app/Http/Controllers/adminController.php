@@ -78,7 +78,14 @@ class adminController extends Controller
         $deli=Order::find($dId);
         //dd($deli);
         $deli->orderstatus='delivered';
+
+        $u = $deli->paymentid;
         $deli->save();
+        DB::table('orders')->where('paymentid','=',$u)->update(['paystatus'=>'1']);
+        DB::table('payment')->where('paymentid','=',$u)->update(['paystatus'=>'1']);
+
+
+
         return $this->showPendingDelivery();
     }
     function showCompletedDelivery(){

@@ -1,7 +1,12 @@
 <?php
 
+use App\Utility;
 use Illuminate\Support\Facades\Input;
 use App\Inventory;
+use App\User;
+use App\Salary;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +19,6 @@ use App\Inventory;
 |
 */
 
-
-Route::get('/', 'HomeController@index');
 //Event routes----
 
 Route::post('/Event/submit','EventController@submit');
@@ -29,31 +32,80 @@ Route::post('/eventsUpdate','EventController@EditEvent');
 
 Route::get('/', 'MenuController@showIndex');
 
+Route::get('/createUtility','UtilityController@create');
 
 
-//Employee routes----
 
+//--------------------------------------------Employee routes---------------------------------------------------------
 Route::get('/emp', function (){
    return view('restaurant.emp_dash');
 });
-
 Route::get('/emp-form', function (){
     return view('restaurant.sal-create');
 });
+Route::get('/sal-form', function (){
+   return view('restaurant.sal-list');
+});
+
+
+//Kitchen routes
 
 Route::get('/kitchen', 'KitchenController@index');
 Route::post('/kitchen/{oid}/assign','kitchenController@assign');
 
+//Utility routes
+Route::get('/utility', 'UtilityController@index');
+
+
+Route::POST('/createUtility/submit','UtilityController@submit');
+//Route::get('utility/{id}/edit','UtilityController@edit');
+Route::resource('utility', 'UtilityController');
+
+
+Route::any('/search',function(){
+    $q = Input::get ( 'q' );
+    $user = Utility::where('expenseName','LIKE','%'.$q.'%')->orWhere('category','LIKE','%'.$q.'%')->get();
+    if(count($user) > 0)
+        return view('/searchUtility')->withDetails($user)->withQuery ( $q );
+    else return view ('/restaurant.searchUtility')->withMessage('No Details found. Try to search again !');
+});
+
+
 //**************
+
+Route::get('/emp-overview/{id}', function (){
+    return view('restaurant.emp-overview');
+});
+
+
 Route::get('/emp', 'EmployeeController@index');
-
+Route::get('/employee/{id}', 'EmployeeController@show');
 Route::resource('employee', 'EmployeeController');
-
 Route::post('/employee/submit','EmployeeController@submit');
 
-//-------------------
+//Route::get('/emp-overview/{id}', 'EmployeeController@showemp');
+
+Route::get('/sal-list', 'SalaryPayController@index');
+Route::get('/sal-add', 'SalaryPayController@show');
+Route::get('salarypay/{id}', 'SalaryPayController@show');
+Route::POST('/salarypay/submit', 'SalaryPayController@store');
+
+Route::any('/searchemp',function(){
+    $q = Input::get ( 'q' );
+    $users = User::where('name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->get();
+    if(count($users) > 0)
+        return view('restaurant.empSearch')->withDetails($users)->withQuery ( $q );
+    else
+        return view ('restaurant.empSearch')->withMessage('No Details found. Try to search again !');
+});
 
 
+//------------------------------------END EMP ROUTES------------------------------------------------------------------
+
+
+Route::get('/kitchen', 'KitchenController@index');
+Route::post('/kitchen/{oid}/assign','kitchenController@assign');
+Route::get('/kitchen/{oid}/completed','kitchenController@ready');
 
 
 
@@ -141,14 +193,32 @@ Route::get('/menu/{mId}/update', 'MenuController@update');
 Route::post('/menu/{mId}/menuUpdate','MenuController@menuUpdate'); 
 
 
+  
+Route::get('/cart', 'OrderController@viewCart');
 
- Route::get('/cart', 'OrderController@viewCart');
 Route::get('/addToCart/{id}', 'OrderController@addToCart');
+Route::get('/addToCartPost/{id}', 'OrderController@addToCartPost');
 Route::get('/buyNow/{id}', 'OrderController@buyNow');
+
 Route::get('/paysuccess', 'OrderController@codpay');
 Route::get('/paymentexport', 'PaymentController@exportPayments');//reports
 
+
+Route::post('/paysuccess', 'OrderController@codpay');
+Route::post('/paysuccesspost', 'PaymentController@submit');
+
 Route::get('/removeCartItem/{id}', 'OrderController@removeCartItem');
 Route::get('/payment', 'PaymentController@payView');
+Route::get('/onlinepayment', 'PaymentController@payonline');
 Route::get('/increase/{id}', 'OrderController@increase');
 Route::get('/decrease/{id}', 'OrderController@decrease');
+Route::get('/myorders','OrderController@myOrders');
+Route::post('/menuItemSearch','HomeController@searchx');
+Route::get('/menuItemSearchget/{id}','HomeController@searchxget');
+Route::get('//paymentIncomeHistory','PaymentController@adminPayHistory');
+Route::get('/returnSuccess','PaymentController@returnUrl');
+Route::get('/cancel','PaymentController@cancelUrl');
+Route::get('/payhistoryby/{id}','PaymentController@payhistoryby');
+Route::post('/notify','PaymentController@notify');
+
+Route::get('/test','PaymentController@test');

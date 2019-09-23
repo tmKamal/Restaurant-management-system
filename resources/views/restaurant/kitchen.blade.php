@@ -30,7 +30,7 @@
         <td> {{$x->qty}} </td>  
         <td> {{$x->chefid}} </td>        
         <td>
-        <span class="badge badge-info">In Queu</span>
+        <span class="badge badge-info">{{$x->orderstatus}}</span>
         </td>
         <td>{{$x->type}} </td>
         <td>
@@ -52,9 +52,8 @@
           
           <button type="submit" class="btn btn-success">Assign Chef</button>
           </form>
-          <button type="button" class="btn btn-info">Start</button>
-          <button type="button" class="btn btn-danger">Complete</button>
-          <button type="button" class="btn btn-warning">Info</button>
+          <button type="submit" class="btn btn-outline-success"><a href="/kitchen/{{$x->id}}/completed">Complete</a></button>
+          
 
         </td>
       </tr>
