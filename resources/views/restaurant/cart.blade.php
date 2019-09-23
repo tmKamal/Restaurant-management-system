@@ -5,6 +5,8 @@
     @include('includes.navbar')
 </div>
 <div class="jumbotron text-center" style="font-size: 8vh"> My Cart</div>
+<div id="div1" class="container"> </div>
+
 <div class="container mt-2">
     @include('layouts.messages')
 </div>
@@ -12,6 +14,7 @@
 
 
 
+@php($total=0)
 
 @if(count($items))
 <div class="container">
@@ -23,7 +26,6 @@
             <div class="clearfix"></div>
         </div>
         <div class="card-body">
-                @php($total=0)
 
             @foreach($items as $item)
                 <!-- PRODUCT -->
@@ -44,10 +46,10 @@
                     @php($price = $item->price * $item->qty)
                     <div class="col-4 col-sm-4 col-md-4">
                         <div class="quantity">
-                            <input type="button" value="+" class="plus">
-                            <input type="number" step="1" max="99" min="1" value="{{$item->qty}}" title="Qty" class="qty"
-                                   size="4">
-                            <input type="button" value="-" class="minus">
+                            <input type="button" value="+" class="plus" onclick="increase({{$item->itemid}},{{$item->price}});">
+                            <input type="number" step="1" max="99" min="1" value="{{$item->qty}}" title="Qty" class="qty" id="{{$item->itemid}}"
+                                   size="4" disabled>
+                            <input type="button" value="-" class="minus" onclick="decrease({{$item->itemid}},{{$item->price}});">
                         </div>
                     </div>
                     <a class="col-2 col-sm-2 col-md-2 text-right pt-1" href="/removeCartItem/{{$item->itemid}}">
@@ -113,13 +115,17 @@
                 </div>
             </div>
             <div class="pull-right" style="margin: 10px">
-                <a href="/payment" class="btn btn-success pull-right">Checkout</a>
+
+
                 <div class="pull-right" style="margin: 5px">
-                Total price: <b>{{$price}}</b>
+                Total price: <b id="totalP">{{$total}}</b> <b>LKR</b>
                 </div>
             </div>
+
         </div>
     </div>
+    <a href="/payment" class="btn btn-success pull-right">Cash on delivery</a>
+    <a href="/onlinepayment" class="btn btn-success">Pay Online(under development)</a>
 </div>
     @else
     <main role="main" class="container">
@@ -131,6 +137,34 @@
     </main>
 
 @endif
+
+<script>
+    function increase(id,price){
+        $.get("/increase/"+id,function(result){
+            var val = document.getElementById(id).value;
+            document.getElementById(id).value = parseInt(val)+1;
+            var tval = document.getElementById("totalP").innerHTML;
+            document.getElementById("totalP").innerHTML = parseInt(tval)+price;
+            $("#div1").html(result.result);
+        });
+    }
+
+    function decrease(id,price){
+        $.get("/decrease/"+id,function(result){
+            if (result.done == 1){
+                var val = document.getElementById(id).value;
+                document.getElementById(id).value = parseInt(val)-1;
+                var tval = document.getElementById("totalP").innerHTML;
+                document.getElementById("totalP").innerHTML = parseInt(tval)-price;
+            }
+
+
+            $("#div1").html(result.result);
+        });
+    }
+
+
+</script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
