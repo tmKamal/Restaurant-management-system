@@ -19,6 +19,17 @@ class InventoryController extends Controller
         return view('restaurant.inventory')->with('inventory' ,$items);
     }
 
+    public function lowstock(){
+      $items = Inventory::all();
+      //var_dump($items);
+      return view('restaurant.lowstock')->with('inventory' ,$items);
+    }
+
+    public function expired(){
+      $items = Inventory::all();
+      //var_dump($items);
+      return view('restaurant.expired')->with('inventory' ,$items);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -37,10 +48,14 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
-        // $this->validate($request, [
-        //   'text' => 'required',
-        //   'number' => 'required'
-        // ]);
+      $validate = $this->validate($request, [
+          'qty' => 'integer|min:0',
+          'mDate' => 'date',
+          'eDate' => 'date|after:mDate',
+          'oDate' => 'date',
+          'aDate' => 'date|after:oDate',
+
+        ]);
 
         //Create item
         $inventory = new Inventory;
@@ -55,8 +70,6 @@ class InventoryController extends Controller
 
         $inventory->save();
         return redirect('inventory')->with('success', 'Item added');
-
-
 
     }
 
@@ -93,6 +106,15 @@ class InventoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+      $validate = $this->validate($request, [
+          'qty' => 'integer|min:0',
+          'mDate' => 'date',
+          'eDate' => 'date|after:mDate',
+          'oDate' => 'date',
+          'aDate' => 'date|after:oDate',
+
+        ]);
+
       $inventory = Inventory::find($id);
       $inventory -> Product_Name = $request -> input('pName');
       $inventory -> Brand_Name = $request -> input('bName');

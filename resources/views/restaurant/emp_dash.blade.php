@@ -34,13 +34,12 @@
                         </thead>
                         <tbody>
 
-                        @if(count($employee)>0)
-                            @foreach($employee as $salary)
+                        @if(count($salaries)>0)
+                            @foreach($salaries as $salary)
                         <tr>
                             <td><a href="employee/{{$salary->id}}">{{$salary->empType}}</a> </td>
                             <td>{{$salary->basicSal}} LKR</td>
                             <td>{{$salary->otRate}} LKR</td>
-                            {{--<td><p data-placement="top" data-toggle="tooltip" title="Edit"><a href="employee/{{$salary->id}}"> <button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" >VIEW</button></a></p></td>--}}
                         </tr>
                             @endforeach
                         @endif
@@ -50,7 +49,45 @@
             </div>
         </div>
     </div>
-@endsection
+    <br>
+    <div class=" container">
+        <div class="lead">
+            <div class="col-md-12">
+                <h3>Mark Salaries</h3>
+                <br>
+                <a href="/sal-add" id="setup" class="float-left">Mark Salary Details</a>
+                <a href="/sal-list" id="setup" class="float-right">View</a>
+                <br>
+                <div class="table-responsive">
+                    <table id="mytable" class="table table-striped">
+                        <thead>
+                        <th>Employee ID</th>
+                        <th>Employee</th>
+                        <th>Type</th>
 
+                        </thead>
+                        <tbody>
+
+                        {{--array_combine($users, $salarypay) as $x => $y--}}
+                        @foreach($users as $x)
+                            <tr>
+                                <th scope="row">{{$x->id}}</th>
+                                <td>{{$x->name}}  {{$x->lastName}}</td>
+                                <td>{{$x->type}}</td>
+
+                        @endforeach
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+
+    </div>
+@endsection
 
 </body>

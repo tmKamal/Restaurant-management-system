@@ -7,7 +7,7 @@
 
     <!-- Table -->
     @if(isset($details))
-      <h3> The Search results for your query <b>{{ $query }}</b> are:</h3>
+      <h3> The Search results for your query <b>"{{ $query }}"</b> are:</h3>
       <div class="well">
         <table class="zui-table" style="width:100%" >
           <thead>

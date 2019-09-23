@@ -33,12 +33,12 @@
           <td><h3>{{$item->Arrived_Date}}</h3></td>
         </tr>
         <tr>
-          <td><h2>Expire Date :</h2></td>
-          <td><h3>{{$item->Expire_Date}}</h3></td>
-        </tr>
-        <tr>
           <td><h2>Manufactured Date :</h2></td>
           <td><h3>{{$item->Manufactured_Date}}</h3></td>
+        </tr>
+        <tr>
+          <td><h2>Expire Date :</h2></td>
+          <td><h3>{{$item->Expire_Date}}</h3></td>
         </tr>
       </table>
     </div>
