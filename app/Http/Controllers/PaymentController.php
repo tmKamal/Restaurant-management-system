@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Exports\paymentExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 
 class PaymentController extends Controller
@@ -14,6 +16,12 @@ class PaymentController extends Controller
        $items = DB::table('cart')->where(['userid'=>Auth::user()->id])->get();
        return view('restaurant.CashOnDelivery')->with('items',$items);
    }
+
+
+   public function exportPayments(){
+    return Excel::download(new paymentExport,'Payments.xlsx');
+} 
+
 
     public function payonline(){
 
@@ -96,6 +104,7 @@ class PaymentController extends Controller
         DB::table('payment')->insert($payment);
         return view('restaurant.orderedItems')->with('success','order successfully completed');
     }
+
 
     public function adminPayHistory(){
        $orders = DB::table('orders')->get();

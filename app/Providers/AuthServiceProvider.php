@@ -42,6 +42,10 @@ class AuthServiceProvider extends ServiceProvider
             return $user->type=='cashier';
         });
 
+        $gate->define('isAdmin',function($user){
+            return $user->type=='admin';
+        });
+
         //
     }
 }

@@ -43,20 +43,10 @@
                     <li class="navigation_item">
                         <div class="row">
                             <div class="col-2 icon-containerSidebar">
-                                <i class="material-icons crsidebarIcon">mail_outline</i>
-                            </div>
-                            <div class="col-10 sidebarText">
-                                MESSAGES
-                            </div>
-                        </div>
-                    </li>
-                    <li class="navigation_item">
-                        <div class="row">
-                            <div class="col-2 icon-containerSidebar">
                                 <i class="material-icons crsidebarIcon">account_box</i>
                             </div>
                             <div class="col-10 sidebarText">
-                                PROFILE
+                                <a href="/admin">PROFILE</a>
                             </div>
                         </div>
                     </li>
@@ -92,7 +82,8 @@
                         </div>
                     </li>
                     @endcan
-                    @can('isManager')
+                    {{-- @can('isManager') --}}
+                    @if(Gate::check('isManager') || Gate::check('isDriver'))
                     <li class="navigation_item">
                         <div class="row">
                             <div class="col-2 icon-containerSidebar">
@@ -103,7 +94,8 @@
                             </div>
                         </div>
                     </li>
-                    @endcan
+                    {{-- @endcan --}}
+                    @endif
                     @can('isManager')
                     <li class="navigation_item">
                         <div class="row">
@@ -270,6 +262,7 @@
                     <!--=======================================
                         Info Card Container(4 cards included)
                     ==========================================-->
+                    {{--  
                     <div class="row info-cards-wrapper">
                         <!-- Info-Cards-Wrapper -->
                         <div class="col-xl-3 col-md-6  mb-2">
@@ -352,7 +345,7 @@
                                 </div>
                             </div>
                         </div><!-- Info-card-End -->
-                    </div>
+                    </div>--}}
                     <!--=====================
                         Content
                     =========================== -->
