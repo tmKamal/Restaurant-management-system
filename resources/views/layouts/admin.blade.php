@@ -7,6 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"><!-- Inventory Search -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script><!-- Inventory Search -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script><!-- Inventory Search -->
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -14,9 +17,9 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="/css/admin_style.css">
-    <link rel="stylesheet" href="/css/inventoryTable.css">
-    <link rel="stylesheet" href="/css/invShow.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="/css/inventoryTable.css"><!-- Inventory Table -->
+    <link rel="stylesheet" href="/css/invShow.css"><!-- Inventory Show -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"><!-- Inventory -->
 
     <title>Admin Panel</title>
 </head>
@@ -29,7 +32,7 @@
         ==========================-->
         <div id="sidebar-wrapper">
             <div class="logo-side-bar ">
-                <a href="/"><img src="/img/logo.png" alt="logo"></a>    
+                <a href="/"><img src="/img/logo.png" alt="logo"></a>
             </div>
             <div class="first-list-item">
                 <ul class="navigation_section list-container">
@@ -158,7 +161,7 @@
                         </div>
                     </li>
                     @endcan
-                    
+
                 </ul>
             </div>
             <div class="last-list-item">
@@ -208,7 +211,7 @@
                             <a href="#" id="tog_btn" onclick="openSlide()"><i class="material-icons crMenu">menu</i></a>
                             <ul>
                                 <li><a href="#"><i class="material-icons top-nav-icon">search</i></a></li>
-                                
+
                                 <li><a href="index.html"><i
                                             class="material-icons top-nav-icon">notifications_none</i></a></li>
                                 <li><a href="#">{{ Auth::user()->type }}</a></li>
@@ -329,7 +332,7 @@
                     =========================== -->
                     <div class="row justify-content-center">
                         <!--Custom page content-->
-                        
+
                         <div class="main_content col-lg-11 col-md-12 col-sm-12 ">
 
                             @yield('content')
