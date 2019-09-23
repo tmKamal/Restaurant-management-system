@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Order;
+use App\User;
 
 class KitchenController extends Controller
 {
@@ -13,7 +15,24 @@ class KitchenController extends Controller
      */
     public function index()
     {
-        return view('restaurant.kitchen');
+        $orders = Order::all();
+        $chefs = DB::table('users')->where('type','chef')->get();
+        //$users = DB::table('users')->where('votes', 100)->get();
+        //var_dump($orders);
+        return view('restaurant.kitchen')->with('orders',$orders)->with('chefs',$chefs);
+        
+        //return view('restaurant.kitchen');
+    }
+
+    function assign($oId){
+        
+        $data=request()->all();
+        
+        $order=Order::find($oId);
+        
+        $order->chefid=$data['assignChef'];
+        $order->save();
+        return $this->index();
     }
 
     /**

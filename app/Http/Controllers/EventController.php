@@ -76,7 +76,7 @@ class EventController extends Controller
         $Events -> save();
 
         $Events=Event::all();
-        return view('restaurant.Event')->with('data',$Events);;
+        return view('restaurant.Event')->with('data',$Events);
 
 
 

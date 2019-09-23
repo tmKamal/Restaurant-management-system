@@ -12,7 +12,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
     <!-- CSS -->
-    <link rel="stylesheet" href="css/admin_style.css">
+    <link rel="stylesheet" href="/css/admin_style.css">
     <title>Login Form</title>
 </head>
 
