@@ -30,7 +30,7 @@
         <td> {{$x->qty}} </td>  
         <td> {{$x->chefid}} </td>        
         <td>
-        <span class="badge badge-info">In Queu</span>
+        <span class="badge badge-info">In Queue</span>
         </td>
         <td>{{$x->type}} </td>
         <td>

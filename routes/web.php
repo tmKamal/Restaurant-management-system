@@ -31,30 +31,39 @@ Route::get('/', 'MenuController@showIndex');
 
 
 
-//Employee routes----
-
+//--------------------------------------------Employee routes---------------------------------------------------------
 Route::get('/emp', function (){
    return view('restaurant.emp_dash');
 });
-
 Route::get('/emp-form', function (){
     return view('restaurant.sal-create');
 });
+Route::get('/sal-form', function (){
+   return view('restaurant.sal-list');
+});
+
+Route::get('/emp-overview/{id}', function (){
+    return view('restaurant.emp-overview');
+});
+
+Route::get('/emp', 'EmployeeController@index');
+Route::get('/employee/{id}', 'EmployeeController@show');
+Route::resource('employee', 'EmployeeController');
+Route::post('/employee/submit','EmployeeController@submit');
+
+//Route::get('/emp-overview/{id}', 'EmployeeController@showemp');
+
+Route::get('/sal-list', 'SalaryPayController@index');
+Route::get('/sal-add', 'SalaryPayController@show');
+Route::get('salarypay/{id}', 'SalaryPayController@show');
+Route::POST('/salarypay/submit', 'SalaryPayController@store');
+
+
+//------------------------------------END EMP ROUTES------------------------------------------------------------------
+
 
 Route::get('/kitchen', 'KitchenController@index');
 Route::post('/kitchen/{oid}/assign','kitchenController@assign');
-
-//**************
-Route::get('/emp', 'EmployeeController@index');
-
-Route::resource('employee', 'EmployeeController');
-
-Route::post('/employee/submit','EmployeeController@submit');
-
-//-------------------
-
-
-
 
 
 /* -----Routes CR------------- */
