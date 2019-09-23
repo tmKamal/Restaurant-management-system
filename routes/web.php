@@ -93,6 +93,8 @@ Route::POST('/salarypay/submit', 'SalaryPayController@store');
 
 Route::get('/kitchen', 'KitchenController@index');
 Route::post('/kitchen/{oid}/assign','kitchenController@assign');
+Route::get('/kitchen/{oid}/completed','kitchenController@ready');
+
 
 
 /* -----Routes CR------------- */
