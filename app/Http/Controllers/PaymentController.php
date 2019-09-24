@@ -78,7 +78,7 @@ class PaymentController extends Controller
         $data = $request->all();
 
         foreach ($items as $item){
-            global $total; $total += ($item->qty)*($item->price);
+            $total += ($item->qty)*($item->price);
             $order = [
                 'itemid' => $item->itemid,
                 'itemname' => $item->itemname,
@@ -107,8 +107,8 @@ class PaymentController extends Controller
 
 
     public function adminPayHistory(){
-       $orders = DB::table('orders')->get();
-        $items = DB::table('payment')->get();
+       $orders = DB::table('orders')->where('paystatus','=','1')->get();
+        $items = DB::table('payment')->where('paystatus','=','1')->get();
         return view('restaurant.paymentHistory')->with('payments',$items)->with('orders',$orders);
     }
     public function payhistoryby($id){

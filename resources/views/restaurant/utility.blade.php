@@ -73,7 +73,7 @@
     </div>
     <div class="col-md-4">
          <!-- Search form -->
-         <form action="/search" method="POST" role="search">
+         <form action="/searchU" method="POST" role="search">
             {{ csrf_field() }}
             <div class="input-group">
                 <input type="text" class="form-control" name="q"
@@ -96,7 +96,7 @@
         <th scope="col">Payment type</th>
         <th scope="col">Total Due</th>
         <th scope="col">Status</th>
-        <th scope="col">Notes</th>
+        {{-- <th scope="col">Notes</th> --}}
         <th scope="col">Action</th>
 
       </tr>
@@ -112,7 +112,7 @@
         <td> {{$y->category}}</td>
         <td>{{$y->amount}}</td>
         <td><span class="badge badge-pill badge-success">Paid</span></td>
-        <td>{{$y->note}}</td>
+        {{-- <td>{{$y->note}}</td> --}}
         <td>
             <div class="row">
                 <div class="col-6">

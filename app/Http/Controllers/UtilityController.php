@@ -48,7 +48,7 @@ class UtilityController extends Controller{
         $utility->category = $request->input('type');
         $utility->date = $request->input('date');
         $utility->amount = $request->input('amount');
-        $utility->note = $request->input('expenseName');
+        $utility->note = $request->input('note');
         $utility->expenseName = $request->input('expenseName');
         
         //save utility

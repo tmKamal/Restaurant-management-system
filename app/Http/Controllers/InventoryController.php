@@ -52,10 +52,11 @@ class InventoryController extends Controller
     {
       $validate = $this->validate($request, [
           'qty' => 'integer|min:0',
-          'mDate' => 'date',
+          'mDate' => 'date|before:aDate',
           'eDate' => 'date|after:mDate',
-          'oDate' => 'date',
+          'oDate' => 'date|after_or_equal:mDate',
           'aDate' => 'date|after:oDate',
+
 
         ]);
 
@@ -109,11 +110,11 @@ class InventoryController extends Controller
     public function update(Request $request, $id)
     {
       $validate = $this->validate($request, [
-          'qty' => 'integer|min:0',
-          'mDate' => 'date',
-          'eDate' => 'date|after:mDate',
-          'oDate' => 'date',
-          'aDate' => 'date|after:oDate',
+        'qty' => 'integer|min:0',
+        'mDate' => 'date|before:aDate',
+        'eDate' => 'date|after:mDate',
+        'oDate' => 'date|after_or_equal:mDate',
+        'aDate' => 'date|after:oDate',
 
         ]);
 
