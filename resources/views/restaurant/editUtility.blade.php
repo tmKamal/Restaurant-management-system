@@ -27,10 +27,10 @@
     </div>
 
     
-    <div class = "form-group">
+    {{-- <div class = "form-group">
         {{Form::label('note', 'Note')}}
         {{Form::text('note', $utility->note,['class'=>'form-control','placeholder' => 'Add Notes here'])}}
-    </div>
+    </div> --}}
 
     <div>
     {{Form::hidden('_method','PUT')}}

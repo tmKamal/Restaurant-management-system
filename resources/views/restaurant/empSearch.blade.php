@@ -16,8 +16,7 @@
 
     <div class="container">
         @if(isset($users))
-            <p> The Search results for your query <b> {{ $query }} </b> are :</p>
-            <h2>Employee details</h2>
+            <h2>Search results</h2>
             <table id="mytable" class="table table-striped">
                 <thead>
                 <th>Employee ID</th>

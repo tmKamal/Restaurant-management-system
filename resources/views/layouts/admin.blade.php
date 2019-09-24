@@ -82,8 +82,8 @@
                         </div>
                     </li>
                     @endcan
-                    {{-- @can('isManager') --}}
-                    @if(Gate::check('isManager') || Gate::check('isDriver'))
+                    @can('isManager') 
+                    {{-- @if(Gate::check('isManager') || Gate::check('isDriver')) --}}
                     <li class="navigation_item">
                         <div class="row">
                             <div class="col-2 icon-containerSidebar">
@@ -94,9 +94,22 @@
                             </div>
                         </div>
                     </li>
-                    {{-- @endcan --}}
-                    @endif
+                    @endcan 
+                    {{-- @endif --}}
+
                     @can('isManager')
+                            <li class="navigation_item">
+                                <div class="row">
+                                    <div class="col-2 icon-containerSidebar">
+                                        <i class="material-icons crsidebarIcon">account_box</i>
+                                    </div>
+                                    <div class="col-10 sidebarText">
+                                        <a href="live_search">USER DETAILS</a>
+                                    </div>
+                                </div>
+                            </li>
+                        @endcan
+                    
 
                         @can('isManager')
                             <li class="navigation_item">
@@ -110,17 +123,17 @@
                                 </div>
                             </li>
                         @endcan
+                        
+
+
+
+
+
+
+
+
+
                         @can('isManager')
-
-
-
-
-
-
-
-
-
-
                     <li class="navigation_item">
                         <div class="row">
                             <div class="col-2 icon-containerSidebar">

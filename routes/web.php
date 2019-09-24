@@ -106,12 +106,12 @@ Route::POST('/createUtility/submit','UtilityController@submit');
 Route::resource('utility', 'UtilityController');
 
 
-Route::any('/search',function(){
+Route::any('/searchU',function(){
     $q = Input::get ( 'q' );
     $user = Utility::where('expenseName','LIKE','%'.$q.'%')->orWhere('category','LIKE','%'.$q.'%')->get();
     if(count($user) > 0)
-        return view('/searchUtility')->withDetails($user)->withQuery ( $q );
-    else return view ('/restaurant.searchUtility')->withMessage('No Details found. Try to search again !');
+        return view('restaurant.searchUtility')->withDetails($user)->withQuery ( $q );
+    else return view ('restaurant.searchUtility')->withMessage('No Details found. Try to search again !');
 });
 
 
@@ -142,6 +142,8 @@ Route::any('/searchemp',function(){
     else
         return view ('restaurant.empSearch')->withMessage('No Details found. Try to search again !');
 });
+
+Route::post('/searchemp','EmployeeController@search');
 
 
 //------------------------------------END EMP ROUTES------------------------------------------------------------------

@@ -106,7 +106,12 @@
         </div>
     <br>
     <!-- Add Item Button -->
+    <div class="row">
+        <div class="col-md-12">
+            <a class="btn btn-success p-3" href="/paymentexport" style="width:100%;">Download Payment reports </a>
 
+        </div>
+    </div>
     <!-- Inventory table -->
     @if(count($payments) > 0)
         <div class="well">

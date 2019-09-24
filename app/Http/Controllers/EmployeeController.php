@@ -141,4 +141,10 @@ class EmployeeController extends Controller
 
         return redirect('/emp')->with('success', 'Data Deleted');
     }
+
+    public function search(Request $request)
+    {
+        $items = DB::table('users')->where('name', 'like', '%' . $request->q . '%')->get();
+        return view('restaurant.empSearch')->with('users',$items);
+    }
 }
