@@ -2,5 +2,5 @@
 *.css linguist-vendored
 *.scss linguist-vendored
 *.js linguist-vendored
-*.html linguist-detectable=false
+*.php linguist-language=Php
 CHANGELOG.md export-ignore
