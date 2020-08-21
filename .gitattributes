@@ -2,5 +2,6 @@
 *.css linguist-vendored
 *.scss linguist-vendored
 *.js linguist-vendored
-*.php linguist-language=Php
+resources/* linguist-generated
+Restaurant-management-system/resources/* linguist-vendored
 CHANGELOG.md export-ignore
